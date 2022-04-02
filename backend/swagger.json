@@ -1,0 +1,186 @@
+{
+  "openapi": "4.3.0",
+  "info": {
+    "version": "2.0.2",
+    "title": "Wallet backend",
+    "description": "Endpoints for Wallet App",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "servers": [{ "url": "http://localhost:3001" }],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "Users endpoints"
+    },
+    { "name": "Transactions", "description": "Transactions endpoints" }
+  ],
+  "paths": {
+    "/users/register": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "User registration",
+
+        "parameters": [],
+        "security": [{ "Bearer": [] }],
+
+        "requestBody": {
+          "description": "Registration's object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegistrationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request (invalid request body)",
+            "content": {}
+          },
+          "409": {
+            "description": "Provided email already exists",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/users/login": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "User authentication",
+        "requestBody": {
+          "description": "Authentication object",
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful login",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/users/logout": {
+      "post": {
+        "tags": ["Users"],
+        "summary": "User logout",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "token",
+            "required": true,
+            "type": "string",
+            "description": "User token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful logout",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/users/:userId": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "User information",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "userId",
+            "required": true,
+            "type": "string",
+            "description": "User id"
+          }
+        ]
+      }
+    },
+    "/transactions": {
+      "get": { "tags": ["Transactions"], "summary": "Get transactions" }
+    },
+    "/transactions/new": {
+      "post": {
+        "tags": ["Transactions"],
+        "summary": "Add new transaction",
+        "requestBody": {
+          "description": "New transaction",
+          "required": true
+        }
+      }
+    },
+    "/transactions/categories": {
+      "get": { "tags": ["Transactions"], "summary": "Transaction categories" }
+    },
+    "/transactions/statistics": {
+      "get": { "tags": ["Transactions"], "summary": "Statistics" }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RegistrationRequest": {
+        "type": "object",
+        "required": ["email", "password"],
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "User's email",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "description": "User's password",
+            "example": "blahblah"
+          }
+        }
+      },
+      "RegistrationResponse": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "User's email",
+            "format": "email"
+          },
+          "userId": {
+            "type": "number",
+            "description": "User's id",
+            "example": "5677sf3dffF6hF5FF"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
