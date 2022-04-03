@@ -196,23 +196,20 @@
           "email": {
             "type": "string",
             "description": "User's email",
-            "format": "email",
-            "minLength": 6,
-            "maxLength": 50
+            "format": "email"
           },
           "password": {
             "type": "string",
             "description": "User's password",
             "example": "blahblah",
-            "minLength": 6,
-            "maxLength": 25
+            "minLength": 6
           },
           "name": {
             "type": "string",
             "description": "Name of the new user",
             "example": "Chuck",
             "minLength": 1,
-            "maxLength": 50
+            "maxLength": 12
           }
         }
       },
