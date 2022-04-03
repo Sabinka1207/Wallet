@@ -1,5 +1,5 @@
 {
-  "openapi": "4.3.0",
+  "openapi": "3.0.0",
   "info": {
     "version": "2.0.2",
     "title": "Wallet backend",
@@ -26,7 +26,6 @@
         "summary": "User registration",
 
         "parameters": [],
-        "security": [{ "Bearer": [] }],
 
         "requestBody": {
           "description": "Registration's object",
@@ -141,21 +140,33 @@
       "get": { "tags": ["Transactions"], "summary": "Statistics" }
     }
   },
+
   "components": {
     "schemas": {
       "RegistrationRequest": {
         "type": "object",
-        "required": ["email", "password"],
+        "required": ["email", "password", "name"],
         "properties": {
           "email": {
             "type": "string",
             "description": "User's email",
-            "format": "email"
+            "format": "email",
+            "minLength": 6,
+            "maxLength": 50
           },
           "password": {
             "type": "string",
             "description": "User's password",
-            "example": "blahblah"
+            "example": "blahblah",
+            "minLength": 6,
+            "maxLength": 25
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the new user",
+            "example": "Chuck",
+            "minLength": 1,
+            "maxLength": 50
           }
         }
       },
