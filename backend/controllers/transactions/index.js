@@ -3,5 +3,5 @@ const getCategories = require('./getCategories');
 
 module.exports = {
     gettransactions,
-    getCategories
+    getCategories,
 }

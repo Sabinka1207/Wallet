@@ -1,9 +1,9 @@
 const express = require("express");
-const {authanticate} = require('../../middlewares/');
+const {authenticate} = require('../../middlewares');
 const router = express.Router();
 const controllers = require('../../controllers/transactions');
 
-router.get('/', authanticate, controllers.gettransactions);
-router.get('/categories', controllers.getCategories);
+router.get('/', authenticate, controllers.gettransactions);
+router.get('/categories', authenticate, controllers.getCategories);
 
 module.exports = router;
