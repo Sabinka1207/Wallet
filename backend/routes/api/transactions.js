@@ -1,11 +1,9 @@
 const express = require("express");
-const {auth} = require('../../middlewares/auth');
-
-
-
+const {authanticate} = require('../../middlewares/');
 const router = express.Router();
-const controllers = require("../../controllers/transactions");
+const controllers = require('../../controllers/transactions');
 
-router.get("/", auth, controllers.gettransactions);
+router.get("/", authanticate, controllers.gettransactions);
+router.get('/categories', controllers.getCategories);
 
 module.exports = router;
