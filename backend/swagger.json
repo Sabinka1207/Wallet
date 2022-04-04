@@ -11,7 +11,7 @@
   },
   "consumes": ["application/json"],
   "produces": ["application/json"],
-  "servers": [{ "url": "http://localhost:3001" }],
+  "servers": [{ "url": "http://localhost:3001/api" }],
   "tags": [
     {
       "name": "Users",
@@ -151,6 +151,18 @@
                 "schema": { "$ref": "#/components/schemas/GetTransactions" }
               }
             }
+          },
+          "400": {
+            "description": "No token provided",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized (invalid access token)",
+            "content": {}
+          },
+          "404": {
+            "description": "Invalid user / Invalid session",
+            "content": {}
           }
         }
       },
@@ -169,18 +181,50 @@
           }
         },
         "responses": {
-          "201": { "description": "Successful operation" },
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/TransactionResponse" }
+          "201": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/TransactionResponse" }
+              }
             }
+          },
+          "400": {
+            "description": "Bad request (invalid request body or id) / No token provided",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized (invalid access token)",
+            "content": {}
+          },
+          "404": {
+            "description": "Not found / Invalid user / Invalid session",
+            "content": {}
           }
         }
       }
     },
 
     "/transactions/categories": {
-      "get": { "tags": ["Transactions"], "summary": "Transaction categories" }
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Get transaction categories",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GetCategories" }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {}
+          }
+        }
+      }
     },
     "/transactions/statistics": {
       "get": { "tags": ["Transactions"], "summary": "Statistics" }
@@ -287,6 +331,36 @@
               "description": "Income - false, spending - true"
             },
             "userId": { "type": "string", "description": "Owner's id" }
+          }
+        }
+      },
+      "AddTransaction": {},
+      "TransactionResponse": {},
+      "GetCategories": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "Category id",
+              "example": "5bdd75jd39347d38cugr98i"
+            },
+            "type": {
+              "type": "string",
+              "description": "Income / spending",
+              "example": "spending"
+            },
+            "nameDropdown": {
+              "type": "string",
+              "description": "Dropdown entry",
+              "example": "Остальное"
+            },
+            "nameStatistics": {
+              "type": "string",
+              "description": "Statistics entry",
+              "example": "Остальные расходы"
+            }
           }
         }
       }
