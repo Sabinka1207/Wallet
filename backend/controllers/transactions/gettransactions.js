@@ -1,9 +1,8 @@
 const {Transaction} = require("../../models/transaction");
-console.log(Transaction);
 
 const gettransactions = async (req, res, next) => {
     const {_id} = req.user;
-    const transactions = await Transaction.findOne({owner:_id}).sort({ 'date' : -1 }).populate("owner","_id name email").exec(function(err,post){});
+    const transactions = await Transaction.findOne({_id}).find({}).sort({ 'date' : -1 }).limit(6);
       res.json({
       status: 'success',
       code: 200,
