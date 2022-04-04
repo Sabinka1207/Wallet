@@ -1,4 +1,4 @@
-// import { lazy } from "react";
+// import { Suspense, lazy } from "react";
 // import { Routes, Route } from "react-router-dom";
 // import PrivateRoute from "PrivateRoute";
 // import PublicRoute from "PublicRoute";
@@ -13,6 +13,7 @@ function App() {
   return (
     <div>
       <TestMainView>
+        {/* <Suspense fallback="loader"> */}
         {/* <Routes> */}
         {/* <Route
           path=""
@@ -41,6 +42,7 @@ function App() {
           }
         ></Route> */}
         {/* </Routes> */}
+        {/* </Suspense> */}
       </TestMainView>
     </div>
   );
