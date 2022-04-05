@@ -30,7 +30,7 @@ export default function RegisterForm() {
     confirmPassword: yup
       .string()
       .oneOf([yup.ref("password")], "Пароли не совпадают.")
-      .required(),
+      .required("Обязательное поле. Повторите, пожалуйста, пароль."),
     name: yup
       .string()
       .matches(

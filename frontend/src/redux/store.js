@@ -12,7 +12,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-/*импортируем reducers*/
+/*импортируем reducers ниже*/
 import authReducer from "./auth/authSlice";
 
 const middleware = [
