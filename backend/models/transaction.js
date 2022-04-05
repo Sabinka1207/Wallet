@@ -36,10 +36,11 @@ const transactionSchema = Schema(
 );
 
 const joiAddTransaction = Joi.object({
-  date: Joi.date(),
+  amount: Joi.string().required(),
+  date: Joi.date().required(),
   comment: Joi.string(),
   income: Joi.boolean(),
-  category: Joi.string(),
+  category: Joi.string().required(),
 });
 
 const Transaction = model('transaction', transactionSchema);
