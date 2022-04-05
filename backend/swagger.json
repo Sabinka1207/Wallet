@@ -170,6 +170,7 @@
         "tags": ["Transactions"],
         "summary": "Add new transaction",
         "security": [{ "Bearer": [] }],
+
         "parameters": [],
         "requestBody": {
           "description": "New transaction",
@@ -227,7 +228,34 @@
       }
     },
     "/transactions/statistics": {
-      "get": { "tags": ["Transactions"], "summary": "Statistics" }
+      "get": {
+        "tags": ["Transactions"],
+        "summary": "Statistics",
+        "security": [{ "Bearer": [] }],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/GetTransactions" }
+              }
+            }
+          },
+          "400": {
+            "description": "No token provided",
+            "content": {}
+          },
+          "401": {
+            "description": "Unauthorized (invalid access token)",
+            "content": {}
+          },
+          "404": {
+            "description": "Invalid user / Invalid session",
+            "content": {}
+          }
+        }
+      }
     }
   },
 
@@ -334,8 +362,52 @@
           }
         }
       },
-      "AddTransaction": {},
-      "TransactionResponse": {},
+      "AddTransaction": {
+        "required": ["amount", "date", "category", "income"],
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "description": "Amount of the transaction",
+            "example": "300"
+          },
+          "date": {
+            "type": "date",
+            "description": "Date of the transaction",
+            "example": "2022-01-03"
+          },
+          "category": {
+            "type": "string",
+            "description": "Category of transactionы",
+            "example": "Еда"
+          },
+          "income": {
+            "type": "boolean",
+            "description": "Income - true, spending - false",
+            "example": "true"
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment on the transaction",
+            "example": "Долг"
+          },
+          "currentBalance": {
+            "type": "string",
+            "description": "Balance after the transaction",
+            "example": "27000"
+          }
+        }
+      },
+      "TransactionResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Transaction id",
+            "example": "nchdsj5GtgxbG6yxs8"
+          }
+        }
+      },
       "GetCategories": {
         "type": "array",
         "items": {
