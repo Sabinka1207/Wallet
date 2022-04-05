@@ -6,4 +6,6 @@ const controllers = require('../../controllers/transactions');
 router.get('/', authenticate, controllers.gettransactions);
 router.get('/categories', authenticate, controllers.getCategories);
 
+router.post('/transactions', controllers.addNewTransaction);
+
 module.exports = router;
