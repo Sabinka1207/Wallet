@@ -1,3 +1,7 @@
+const gettransactions = require("./gettransactions");
 const getCategories = require('./getCategories');
 
-module.exports = { getCategories };
+module.exports = {
+    gettransactions,
+    getCategories,
+}
