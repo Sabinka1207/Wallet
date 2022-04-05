@@ -1,0 +1,43 @@
+.table{
+        padding: 10px 20px 10px;
+        width: 280px;
+        height: 174px;
+
+        font-family: var(--additionalFont);
+        color:var(--white);
+        
+        background-color: var(--accentBlueColor);
+        // background-image: url(../../images/Vector7.svg),
+        // url(../../images/title.svg);
+        // background-size: auto 96px,
+        // auto 50px;
+        // background-repeat: no-repeat;
+        // background-position: bottom,
+        // top;
+        
+        border-radius: 30px;
+}
+
+.tableHead{
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.5;
+}
+
+.tableBody{
+        position: relative;
+        font-size: 16px;
+        line-height: 1.5;
+        
+}
+.tableItemLeft {
+    text-align: left;
+}
+
+.tableItemCenter {
+    text-align: center;
+}
+
+.tableItemRight {
+    text-align: right;
+}
