@@ -20,6 +20,7 @@ app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api/users', routes.users);
 app.use('/api/transactions', routes.transactions);
+app.use('/api/transactions/statistics', routes.statistics);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
