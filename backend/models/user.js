@@ -25,6 +25,10 @@ const userSchema = Schema(
       maxlength: 12,
       match: nameRegexp,
     },
+    balance: {
+      type: String,
+      default: "0.00",
+    },
     token: {
       type: String,
       default: '',
