@@ -59,8 +59,8 @@ const getStatistics = async (req, res, next) => {
   //   next(error);
   // }
     try {
-      const {date} = req.params
-      console.log(date);
+      // const {date} = req.params
+      console.log(req.user);
       const result = await Transaction.aggregate([{ 
         $project: { 
           doc: "$$ROOT", 
