@@ -15,7 +15,8 @@
 ::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 ul {
@@ -38,7 +39,8 @@ button {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  clip-path: inset(100%);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -85,7 +87,8 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .balanceWrap {
@@ -101,24 +104,6 @@ button {
   .balanceWrap {
     width: 336px;
     padding: 10px 40px;
-
-.table {
-  padding: 10px 20px 10px;
-  width: 280px;
-  height: 174px;
-  font-family: var(--additionalFont);
-  color: var(--white);
-  background-color: var(--accentBlueColor);
-  background-repeat: no-repeat;
-  background-position: bottom,
- top;
-  border-radius: 30px;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .table {
-    width: 336px;
-    height: 182px;
   }
 }
 
@@ -142,7 +127,28 @@ button {
   font-size: 30px;
   line-height: 1.1;
   color: var(--black);
+}
 
+.table {
+  padding: 10px 20px 10px;
+  width: 280px;
+  height: 174px;
+  font-family: var(--additionalFont);
+  color: var(--white);
+  background-color: var(--accentBlueColor);
+  background-repeat: no-repeat;
+  background-position: bottom, top;
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .table {
+    width: 336px;
+    height: 182px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
   .table {
     padding: 15px 20px 134px;
     width: 393px;
@@ -197,8 +203,12 @@ button {
 }
 
 .linkLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: var(--black);
 }
 
