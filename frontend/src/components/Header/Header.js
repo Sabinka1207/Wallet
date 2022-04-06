@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import logout from "../../img/icons/logout.svg";
-import "../../sass/main.css";
+import LogoWallet from "../LogoWallet/LogoWallet";
+import "../../sass/main.min.css";
 
-function Header({ children }) {
+function Header() {
   return (
     <header className="header">
       <NavLink
@@ -11,14 +12,14 @@ function Header({ children }) {
         className="linkLogo"
         activeClassName="activeLinkLogo"
       >
-        {children}
+        <LogoWallet></LogoWallet>
       </NavLink>
       <div className="headerLogoutWrap">
         <p className="headerUserName">Имя</p>
-        <svg className="headerLogoutImg" width="24px" height="24px">
+        {/* <svg className="headerLogoutImg" width="24px" height="24px">
           <use href="img/icons/logout.svg"></use>
-        </svg>
-        {/* <img className="headerLogoutImg" src={logout} alt="Выйти" /> */}
+        </svg> */}
+        <img className="headerLogoutImg" src={logout} alt="Выйти" />
         <p className="headerLogout">Выйти</p>
       </div>
     </header>

@@ -1,4 +1,4 @@
-// @import "./utils/fonts";
+@import "./utils/fonts";
 @import "./utils/variables";
 @import "./utils/utils";
 @import "./utils/_container";
@@ -6,4 +6,11 @@
 @import "./components/testMainView";
 @import "./components/loader";
 @import "./components/dashboardPage";
+@import "./components/forms";
+@import "./components/buttonForm";
+@import "./components/buttonLinkForm";
+@import "./components/textErrorForm";
+@import "./components/balance";
+@import "./components/currency";
+@import "./components/logoWallet";
 @import "./components/header";
