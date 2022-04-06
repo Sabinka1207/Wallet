@@ -12,7 +12,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-/*импортируем reducers ниже*/
+//импортируем reducers ниже
 import authReducer from "./auth/authSlice";
 
 const middleware = [
@@ -30,6 +30,7 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+//добавляем reducers ниже
 export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
