@@ -1,5 +1,4 @@
 const { Transaction, schemas } = require('../../models/transaction');
-const { Category } = require('../../models/category');
 
 const CreateError = require('http-errors');
 
