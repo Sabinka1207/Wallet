@@ -1,9 +1,11 @@
-import "../../sass/main.css";
+import "../sass/main.css";
 
 function DashboardPage() {
   return (
     <div className="dashboardPageContainer">
-      <div className="dashboardPageSidebar"></div>
+      <div className="dashboardPageSidebar">
+        <span>DashboardPage</span>
+      </div>
       <div className="dashboardPageMain"></div>
     </div>
   );
