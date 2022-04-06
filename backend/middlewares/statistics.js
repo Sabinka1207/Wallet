@@ -2,7 +2,6 @@ const Joi = require('joi');
 
 const statValid = {
   yearMonthValidation: (req, res, next) => {
-    console.log(req);
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date().getMonth() + 1;;
 console.log("currentMonth:", currentMonth);
