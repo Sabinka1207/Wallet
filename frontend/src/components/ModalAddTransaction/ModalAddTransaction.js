@@ -4,7 +4,7 @@ import { ReactComponent as AddTransaction } from '../../img/icons/add.svg';
 import { ReactComponent as Calendar } from '../../img/icons/calendar.svg';
 import { ReactComponent as Spending } from '../../img/icons/spending-button.svg';
 import { ReactComponent as CloseModal } from '../../img/icons/close.svg';
-
+import './ModalAddTransaction.scss';
 const modalRoot = document.getElementById('modal-root');
 
 function ModalAddTransaction() {
