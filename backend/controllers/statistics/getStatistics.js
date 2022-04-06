@@ -31,21 +31,21 @@ console.log("req.statisticsParams:", req.statisticsParams);
           from: 'categories',
           localField: 'category',
           foreignField: '_id',
-          as: 'categoryObj',
+          as: 'categoryData',
         },
       },
       {
-        $unwind: '$categoryObj',
+        $unwind: '$categoryData',
       },
       {
         $group: {
-          _id: { isIncome: '$isIncome', category: '$categoryObj.nameStatistics' },
+          _id: { income: '$income', category: '$categoryData.nameStatistics' },
           categorySum: { $sum: '$amount' },
         },
       },
       {
         $group: {
-          _id: { isIncome: '$_id.isIncome' },
+          _id: { income: '$_id.income' },
           categories: {
             $push: { category: '$_id.category', categorySum: { $round: ['$categorySum', 2] } },
           },
@@ -55,7 +55,7 @@ console.log("req.statisticsParams:", req.statisticsParams);
       {
         $project: {
           _id: 0,
-          isIncome: '$_id.isIncome',
+          income: '$_id.income',
           categories: '$categories',
           totalSum: { $round: ['$totalSum', 2] },
         },
