@@ -93,9 +93,33 @@ button {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  width: 100vw;
+  width: 100%;
   height: 60px;
-  z-index: 100;
-  background-color: #fff;
+  background-color: aqua;
+}
+
+.headerLogoutWrap {
+  display: flex;
+  font-family: var(--additionalFont);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--grayFour);
+}
+
+.headerUserName {
+  padding-right: 12px;
+  border-right: 1px solid var(--grayFour);
+}
+
+.headerLogoutImg {
+  margin-right: 12px;
+  margin-left: 12px;
+  fill: var(--grayFour);
+}
+
+@media screen and (max-width: 767px) {
+  .headerLogout {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */

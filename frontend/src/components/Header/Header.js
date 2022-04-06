@@ -13,13 +13,14 @@ function Header({ children }) {
       >
         {children}
       </NavLink>
-
-      <ul className="list">
-        <li className="item">Имя</li>
-        <li className="item">
-          <img src={logout} alt="Выйти" />
-        </li>
-      </ul>
+      <div className="headerLogoutWrap">
+        <p className="headerUserName">Имя</p>
+        <svg className="headerLogoutImg" width="24px" height="24px">
+          <use href="img/icons/logout.svg"></use>
+        </svg>
+        {/* <img className="headerLogoutImg" src={logout} alt="Выйти" /> */}
+        <p className="headerLogout">Выйти</p>
+      </div>
     </header>
   );
 }
