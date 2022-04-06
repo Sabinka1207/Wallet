@@ -101,6 +101,24 @@ button {
   .balanceWrap {
     width: 336px;
     padding: 10px 40px;
+
+.table {
+  padding: 10px 20px 10px;
+  width: 280px;
+  height: 174px;
+  font-family: var(--additionalFont);
+  color: var(--white);
+  background-color: var(--accentBlueColor);
+  background-repeat: no-repeat;
+  background-position: bottom,
+ top;
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .table {
+    width: 336px;
+    height: 182px;
   }
 }
 
@@ -124,5 +142,89 @@ button {
   font-size: 30px;
   line-height: 1.1;
   color: var(--black);
+
+  .table {
+    padding: 15px 20px 134px;
+    width: 393px;
+    height: 347px;
+  }
+}
+
+.tableHead {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.tableHeadItem {
+  padding-bottom: 10px;
+}
+
+@media screen and (min-width: 1280px) {
+  .tableHeadItem {
+    padding-bottom: 30px;
+  }
+}
+
+.tableBody {
+  position: relative;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.tableItemLeft {
+  text-align: left;
+}
+
+@media screen and (min-width: 1280px) {
+  .tableItemLeft {
+    text-align: center;
+  }
+}
+
+.tableItemCenter {
+  text-align: center;
+}
+
+.tableItemRight {
+  text-align: right;
+}
+
+@media screen and (min-width: 1280px) {
+  .tableItemRight {
+    text-align: center;
+  }
+}
+
+.linkLogo {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+}
+
+.logoImg {
+  margin-right: 15px;
+  width: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .logoImg {
+    margin-right: 20px;
+    width: 40px;
+  }
+}
+
+.logoText {
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) {
+  .logoText {
+    font-size: 30px;
+  }
 }
 /*# sourceMappingURL=main.css.map */
