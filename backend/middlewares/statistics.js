@@ -31,7 +31,7 @@ console.log("req.query:", req.query);
       return res.status(400).json({ message: validationResult.error.details });
     }
 
-    req.statisticsParams = { year, month };
+    req.statParams = { year, month };
 
     next();
   },

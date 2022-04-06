@@ -4,26 +4,25 @@ const ObjectId = require('mongoose').Types.ObjectId;
 const getStatistics = async (req, res, next) => {
   try {
     const { _id } = req.user;
-    const { year, month } = req.statisticsParams;
+    const { year, month } = req.statParams;
 console.log("req.statisticsParams:", req.statisticsParams);
-    const FIRST_DAY_OF_MONTH = 1;
-
-    const startYear = year;
-    const startMonthIndex = month - 1;
-    const endYear = month < 12 ? year : year + 1;
-    const endMonthIndex = month < 12 ? startMonthIndex + 1 : 0;
-
-    const startPoint = new Date(startYear, startMonthIndex, FIRST_DAY_OF_MONTH);
-    const endPoint = new Date(endYear, endMonthIndex, FIRST_DAY_OF_MONTH);
 
     const result = await Transaction.aggregate([
       {
         $match: {
           owner: ObjectId(_id),
-          createdAt: {
-            $gte: startPoint, 
-            $lt: endPoint, 
-          },
+        },
+      },
+      {
+        $addFields: {
+          year: { $year: '$date' },
+          month: { $month: '$date' },
+        },
+      },
+      {
+        $match: {
+          year: year,
+          month: month,
         },
       },
       {
@@ -40,7 +39,9 @@ console.log("req.statisticsParams:", req.statisticsParams);
       {
         $group: {
           _id: { income: '$income', category: '$categoryData.nameStatistics' },
-          categorySum: { $sum: '$amount' },
+          categorySum: { $sum: {
+            "$toDouble": '$amount'} 
+          },
         },
       },
       {

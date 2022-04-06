@@ -16,7 +16,7 @@ const transactionSchema = Schema(
       type: String,
     },
     amount: {
-      type: Number,
+      type: String,
       required: [true, 'Set the spent amount'],
     },
     currentBalance: {
