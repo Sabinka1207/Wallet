@@ -1,47 +1,3 @@
-@font-face {
-  font-family: "Circe";
-  src: url(../../assets/fonts/Circle/Circe-Bold.eot);
-  src: url(../../assets/fonts/Circle/Circe-Bold.ttf);
-  src: url(../../assets/fonts/Circle/Circe-Bold.woff);
-  src: url(../../assets/fonts/Circle/Circe-ExtraBold.eot);
-  src: url(../../assets/fonts/Circle/Circe-ExtraBold.ttf);
-  src: url(../../assets/fonts/Circle/Circe-ExtraBold.woff);
-  src: url(../../assets/fonts/Circle/Circe-ExtraLight.eot);
-  src: url(../../assets/fonts/Circle/Circe-ExtraLight.ttf);
-  src: url(../../assets/fonts/Circle/Circe-ExtraLight.woff);
-  src: url(../../assets/fonts/Circle/Circe-Light.eot);
-  src: url(../../assets/fonts/Circle/Circe-Light.ttf);
-  src: url(../../assets/fonts/Circle/Circe-Light.woff);
-  src: url(../../assets/fonts/Circle/Circe-Regular.eot);
-  src: url(../../assets/fonts/Circle/Circe-Regular.ttf);
-  src: url(../../assets/fonts/Circle/Circe-Regular.woff);
-  src: url(../../assets/fonts/Circle/Circe-Thin.eot);
-  src: url(../../assets/fonts/Circle/Circe-Thin.ttf);
-  src: url(../../assets/fonts/Circle/Circe-Thin.woff);
-}
-
-@font-face {
-  font-family: "Poppins";
-  src: url(../../assets/fonts/Poppins/Poppins-Black.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-BlackItalic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-Bold.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-BoldItalic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-ExtraBold.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-ExtraLight.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-ExtraLightItalic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-Italic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-Light.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-LightItalic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-Medium.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-MediumItalic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-Regular.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-SemiBold.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-Thin.ttf);
-  src: url(../../assets/fonts/Poppins/Poppins-ThinItalic.ttf);
-}
-
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -59,8 +15,7 @@
 ::before {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ul {
@@ -83,8 +38,7 @@ button {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -131,7 +85,44 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.balanceWrap {
+  padding: 10px 32px;
+  width: 280px;
+  height: 80px;
+  text-align: left;
+  background: var(--white);
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .balanceWrap {
+    width: 336px;
+    padding: 10px 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .balanceWrap {
+    width: 395px;
+  }
+}
+
+.balanceTitle {
+  margin: 0px 0px 12px 0px;
+  font-family: var(--additionalFont);
+  font-size: 12px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #A6A6A6;
+}
+
+.balanceText {
+  font-family: var(--mainFont);
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--black);
 }
 /*# sourceMappingURL=main.css.map */
