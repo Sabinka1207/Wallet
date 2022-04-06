@@ -1,10 +1,13 @@
-import "../sass/main.css";
+// import "../sass/main.css";
+
+import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 function DashboardPage() {
   return (
     <div className="dashboardPageContainer">
       <div className="dashboardPageSidebar">
         <span>DashboardPage</span>
+        <ButtonAddTransaction />
       </div>
       <div className="dashboardPageMain"></div>
     </div>
