@@ -169,7 +169,6 @@
       "post": {
         "tags": ["Transactions"],
         "summary": "Add new transaction",
-        "security": [{ "Bearer": [] }],
 
         "parameters": [],
         "requestBody": {
@@ -378,7 +377,7 @@
           },
           "category": {
             "type": "string",
-            "description": "Category of transactionы",
+            "description": "Category of transactions",
             "example": "Еда"
           },
           "income": {
