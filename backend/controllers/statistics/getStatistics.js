@@ -3,7 +3,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 const getStatistics = async (req, res, next) => {
   try {
-    const { _id } = req.user;
+    // const { _id } = req.user;
     const { year, month } = req.statisticsParams;
 console.log("req.statisticsParams:", req.statisticsParams);
     const FIRST_DAY_OF_MONTH = 1;
@@ -19,7 +19,7 @@ console.log("req.statisticsParams:", req.statisticsParams);
     const result = await Transaction.aggregate([
       {
         $match: {
-          owner: ObjectId(_id),
+          // owner: ObjectId(_id),
           createdAt: {
             $gte: startPoint, 
             $lt: endPoint, 
@@ -39,13 +39,13 @@ console.log("req.statisticsParams:", req.statisticsParams);
       },
       {
         $group: {
-          _id: { isExpense: '$isExpense', category: '$categoryObj.name' },
+          _id: { isIncome: '$isIncome', category: '$categoryObj.name' },
           categorySum: { $sum: '$amount' },
         },
       },
       {
         $group: {
-          _id: { isExpense: '$_id.isExpense' },
+          _id: { isIncome: '$_id.isIncome' },
           categories: {
             $push: { category: '$_id.category', categorySum: { $round: ['$categorySum', 2] } },
           },
@@ -55,7 +55,7 @@ console.log("req.statisticsParams:", req.statisticsParams);
       {
         $project: {
           _id: 0,
-          isExpense: '$_id.isExpense',
+          isIncome: '$_id.isIncome',
           categories: '$categories',
           totalSum: { $round: ['$totalSum', 2] },
         },
