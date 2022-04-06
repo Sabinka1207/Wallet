@@ -3,7 +3,7 @@ const CreateError = require('http-errors')
 
 const addNewTransaction = async (req, res, next) => {
   try {
-    const;
+    // const;
   } catch (error) {
     next(error);
   }

@@ -1,24 +1,71 @@
-const CreateError = require('http-errors')
-const ObjectId = require("mongoose").Types.ObjectId;
-
-const { Transaction } = require('../../models/transaction');
+const { Transaction } = require('../../models');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 const getStatistics = async (req, res, next) => {
-    try {
-      const {date} = req.params
-      console.log(date);
-      const result = await Transaction.aggregate([{ 
-        $project: { 
-          doc: "$$ROOT", 
-          year: { $year: "$date" }, 
-          month: { $month: "$date" }
-        } }, {
-           $match : { "month" : 02, "year": 2022 } 
-          } ] );
-      res.json(result)
-    } catch (error) {
-      next(error)
-    }
-  }
+  try {
+    const { _id } = req.user;
+    const { year, month } = req.statisticsParams;
+console.log("req.statisticsParams:", req.statisticsParams);
+    const FIRST_DAY_OF_MONTH = 1;
 
-  module.exports = getStatistics;
+    const startYear = year;
+    const startMonthIndex = month - 1;
+    const endYear = month < 12 ? year : year + 1;
+    const endMonthIndex = month < 12 ? startMonthIndex + 1 : 0;
+
+    const startPoint = new Date(startYear, startMonthIndex, FIRST_DAY_OF_MONTH);
+    const endPoint = new Date(endYear, endMonthIndex, FIRST_DAY_OF_MONTH);
+
+    const result = await Transaction.aggregate([
+      {
+        $match: {
+          owner: ObjectId(_id),
+          createdAt: {
+            $gte: startPoint, 
+            $lt: endPoint, 
+          },
+        },
+      },
+      {
+        $lookup: {
+          from: 'categories',
+          localField: 'category',
+          foreignField: '_id',
+          as: 'categoryData',
+        },
+      },
+      {
+        $unwind: '$categoryData',
+      },
+      {
+        $group: {
+          _id: { income: '$income', category: '$categoryData.nameStatistics' },
+          categorySum: { $sum: '$amount' },
+        },
+      },
+      {
+        $group: {
+          _id: { income: '$_id.income' },
+          categories: {
+            $push: { category: '$_id.category', categorySum: { $round: ['$categorySum', 2] } },
+          },
+          totalSum: { $sum: '$categorySum' },
+        },
+      },
+      {
+        $project: {
+          _id: 0,
+          income: '$_id.income',
+          categories: '$categories',
+          totalSum: { $round: ['$totalSum', 2] },
+        },
+      },
+    ]);
+
+    return res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+module.exports = getStatistics;

@@ -8,7 +8,7 @@ const getUserInfo = async (req, res, next) => {
         const query = { owner: _id };
         const recentTransactions = await Transaction.find(
            query, "-createdAt -updatedAt").sort({date: 1}).limit(6);
-        req.json({
+        res.json({
             _id,
             name,
             token,
