@@ -15,8 +15,7 @@
 ::before {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ul {
@@ -39,8 +38,7 @@ button {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -87,19 +85,13 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .formComponent {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   text-align: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
@@ -136,7 +128,6 @@ button {
 
 .formField:-webkit-autofill, .formField:-webkit-autofill:hover, .formField:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--black);
-  -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
   box-shadow: 0 0 0px 1000px var(--white) inset;
   font-family: var(--additionalFont);
   font-style: normal;
@@ -149,33 +140,6 @@ button {
   .formField {
     width: 410px;
   }
-}
-
-.formField::-webkit-input-placeholder {
-  font-family: var(--additionalFont);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--grayFour);
-}
-
-.formField:-ms-input-placeholder {
-  font-family: var(--additionalFont);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--grayFour);
-}
-
-.formField::-ms-input-placeholder {
-  font-family: var(--additionalFont);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--grayFour);
 }
 
 .formField::placeholder {
@@ -215,18 +179,12 @@ button {
 }
 
 .btnLinkForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-top: 15px;
   margin-left: auto;
   margin-right: auto;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   width: 280px;
   height: 40px;
   font-family: var(--additionalFont);
@@ -312,7 +270,7 @@ button {
   color: var(--white);
   background-color: var(--accentBlueColor);
   background-repeat: no-repeat;
-  background-position: bottom, top;
+  background-position: bottom, top;
   border-radius: 30px;
 }
 
@@ -378,12 +336,8 @@ button {
 }
 
 .linkLogo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   color: var(--black);
 }
 
@@ -413,81 +367,68 @@ button {
   }
 }
 
-.loginPageIMGContainer,
-.loginPageEllipseViolet,
-.loginPageEllipseOrange {
-  display: none;
+@media screen and (max-width: 767px) {
+  .navigationList {
+    display: flex;
+    justify-content: space-evenly;
+  }
 }
 
-.loginPageIMGContainer {
-  width: 100%;
-  min-width: 280px;
+.navigationText {
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+@media screen and (max-width: 767px) {
+  .navigationText {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
-  .loginPageContainer {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 60px;
-    width: 738px;
-    background-color: #E7EAF2;
-    overflow: hidden;
-    z-index: -2;
-  }
-  .loginPageIMGContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    margin-bottom: 50px;
-  }
-  .loginPageText {
-    padding-left: 40px;
-    font-family: var(--mainFont);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 1.5;
-  }
-  .loginPageEllipseViolet,
-  .loginPageEllipseOrange {
-    display: inline;
-  }
-  .loginPageEllipseOrange {
-    position: absolute;
-    left: 410px;
-    top: -20px;
-    z-index: -1;
-  }
-  .loginPageEllipseViolet {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-    z-index: -1;
+  .navigationText {
+    vertical-align: middle;
   }
 }
 
-@media screen and (min-width: 1280px) {
-  .loginPageContainer {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    min-width: 1280px;
-    padding-top: 0px;
+.navigationLink {
+  font-family: var(--mainFont);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+.navigationActiveLink {
+  font-weight: 700;
+}
+
+.navigationImg {
+  background-color: aqua;
+}
+
+@media screen and (min-width: 768px) {
+  .navigationImg {
+    margin-right: 20px;
   }
-  .loginPageIMGContainer {
-    display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .navigationCurrencyItem {
+    display: none;
   }
-  .loginPageFormContainer {
-    background: rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(50px);
-            backdrop-filter: blur(50px);
+}
+
+.navigationText {
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  .navigationText {
+    display: none;
   }
 }
 /*# sourceMappingURL=main.css.map */
