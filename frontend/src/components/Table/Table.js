@@ -3,7 +3,7 @@ import "../../sass/main.css"
 
 function Table (){
     return(
-        <div className="chart__table">
+        <div className="chart__container">
         <select name="user_profile_color_1" className="select" >
             <option value="Январь" className="text" >Январь</option>
             <option value="Февраль" className="text" >Февраль</option>
@@ -53,8 +53,8 @@ function Table (){
                 
             </tr>
         </table>
-        <p className="total__text">Расходы: <span>22 549.24</span></p>
-        <p className="total__text">Доходы:: <span>27 350.00</span></p>
+        <p className="total__text">Расходы: <span className="total__sum">22 549.24</span></p>
+        <p className="total__text">Доходы:: <span className="total__sum">27 350.00</span></p>
 
         </div>
     )
