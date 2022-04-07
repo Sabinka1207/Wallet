@@ -16,7 +16,10 @@
         "../sass/components/_textErrorForm.scss",
         "../sass/components/_balance.scss",
         "../sass/components/_currency.scss",
-        "../sass/components/_logoWallet.scss"
+        "../sass/components/_header.scss",
+        "../sass/components/_logoWallet.scss",
+        "../sass/components/_navigation.scss",
+        "../sass/components/_loginPage.scss"
     ],
     "names": [],
     "file": "main.min.css"

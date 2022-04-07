@@ -1,0 +1,75 @@
+.loginPageIMGContainer,
+.loginPageEllipseViolet,
+.loginPageEllipseOrange {
+    display: none;
+}
+
+.loginPageIMGContainer {
+    width: 100%;
+    min-width: 280px;
+}
+
+@media screen and (min-width: 768px) {
+    .loginPageContainer {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 60px;
+        width: 738px;
+        background-color: #E7EAF2;
+        overflow: hidden;
+        z-index: -2;
+    }
+    .loginPageIMGContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+    .loginPageText {
+        padding-left: 40px;
+        font-family: var(--mainFont);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 1.5;
+    }
+    .loginPageEllipseViolet,
+    .loginPageEllipseOrange {
+        display: inline;
+        
+    }
+
+    .loginPageEllipseOrange {
+        position: absolute;
+        left: 410px;
+        top: -20px;
+        z-index: -1;
+    }
+
+    .loginPageEllipseViolet {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        z-index: -1;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .loginPageContainer {
+        display: flex;
+        min-width: 1280px;
+        padding-top: 0px;
+
+    }
+
+    .loginPageIMGContainer {
+        display: block;
+    }
+
+    .loginPageFormContainer {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(50px);
+    }
+
+}

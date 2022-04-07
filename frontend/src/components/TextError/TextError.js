@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../../css/main.min.css";
 
 function TextError(props) {

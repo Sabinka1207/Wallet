@@ -1,4 +1,4 @@
-import "../../sass/main.css";
+import "../../css/main.min.css";
 import { Circles } from "react-loader-spinner";
 
 function Loader({ color, size }) {
