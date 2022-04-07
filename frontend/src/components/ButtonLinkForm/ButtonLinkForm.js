@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import "../../sass/main.css";
+import "../../css/main.min.css";
 
 function ButtonLink({ bottomTitle, link }) {
   return (

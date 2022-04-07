@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../../sass/main.css";
+import "../../css/main.min.css";
 
 function ButtonForm({ bottomTitle, disabled }) {
   return (
