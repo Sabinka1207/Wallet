@@ -91,7 +91,16 @@ button {
 @media screen and (max-width: 767px) {
   .navigationList {
     display: flex;
+    justify-content: space-evenly;
   }
+}
+
+.navigationText {
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--black);
 }
 
 @media screen and (max-width: 767px) {
@@ -100,12 +109,46 @@ button {
   }
 }
 
-.navigationItem {
-  background-color: chocolate;
+@media screen and (min-width: 768px) {
+  .navigationText {
+    vertical-align: middle;
+  }
+}
+
+.navigationLink {
+  font-family: var(--mainFont);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+.navigationActiveLink {
+  font-weight: 700;
+}
+
+.navigationImg {
+  background-color: aqua;
+}
+
+@media screen and (min-width: 768px) {
+  .navigationImg {
+    margin-right: 20px;
+  }
 }
 
 @media screen and (min-width: 768px) {
   .navigationCurrencyItem {
+    display: none;
+  }
+}
+
+.navigationText {
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  .navigationText {
     display: none;
   }
 }
