@@ -1,0 +1,47 @@
+.select{
+    border-radius: 30px;
+    padding: 12px 20px;
+    width: 182px;
+    margin-right: 32px;
+    margin-bottom: 20px;
+}
+.text{
+    font-family: var(--additionalFont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 2;
+}
+.chart__table {
+    border-spacing: 0 20px;
+    width: 100%;
+  }
+.table__head{
+    background-color: red;
+    border: 1px solid rgb(26, 7, 7);
+    border-radius: 30px;
+    font-family: var(--additionalFont);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    width: 395px;
+    padding: 28px 0;
+}
+.table__head th{
+    border-radius: 30px 0 0 30p;
+}
+.table__head td{
+    font-family: var(--additionalFont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.total__text{
+    font-family: var(--additionalFont);
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+}

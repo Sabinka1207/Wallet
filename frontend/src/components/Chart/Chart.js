@@ -35,7 +35,7 @@ function Chart (){
     
     
     return(
-        <div className="chart" style={{ width: "288px" }}>
+        <div className="chart">
             <Doughnut  data={data} />
         </div>
         
