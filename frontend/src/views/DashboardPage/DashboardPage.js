@@ -1,5 +1,5 @@
-// import '../sass/main.css';
 
+import "../../css/main.min.css";
 import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 
 function DashboardPage() {

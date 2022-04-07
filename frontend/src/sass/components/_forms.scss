@@ -1,0 +1,70 @@
+.formComponent {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .formComponent {
+    width: 535px;
+    height: 470px;
+    border-radius: 20px;
+  }
+}
+
+.form {
+  margin-top: 60px;
+}
+
+.input {
+  position: relative;
+}
+
+.inputError:not(:first-child) {
+  margin-top: 20px;
+}
+
+.formField {
+  width: 280px;
+  height: 32px;
+  padding-left: 55px;
+
+  border: none;
+  border-bottom: 1px solid var(--grayFive);
+  outline: none;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--black);
+    -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
+    box-shadow: 0 0 0px 1000px var(--white) inset;
+    font-family: var(--additionalFont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .formField {
+    width: 410px;
+  }
+}
+
+.formField::placeholder {
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--grayFour);
+}
+
+.formImg {
+  position: absolute;
+}

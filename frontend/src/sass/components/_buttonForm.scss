@@ -1,0 +1,26 @@
+.btnForm {
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  width: 280px;
+  height: 40px;
+
+  margin-top: 25px;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+
+  color: var(--white);
+  background-color: var(--accentGreenColor);
+
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .btnForm {
+    width: 300px;
+  }
+}

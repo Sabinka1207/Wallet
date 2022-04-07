@@ -15,8 +15,7 @@
 ::before {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ul {
@@ -39,8 +38,7 @@ button {
   border: 0;
   padding: 0;
   white-space: nowrap;
-  -webkit-clip-path: inset(100%);
-          clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
@@ -87,7 +85,350 @@ button {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.formComponent {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+@media screen and (min-width: 768px) {
+  .formComponent {
+    width: 535px;
+    height: 470px;
+    border-radius: 20px;
+  }
+}
+
+.form {
+  margin-top: 60px;
+}
+
+.input {
+  position: relative;
+}
+
+.inputError:not(:first-child) {
+  margin-top: 20px;
+}
+
+.formField {
+  width: 280px;
+  height: 32px;
+  padding-left: 55px;
+  border: none;
+  border-bottom: 1px solid var(--grayFive);
+  outline: none;
+}
+
+.formField:-webkit-autofill, .formField:-webkit-autofill:hover, .formField:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--black);
+  box-shadow: 0 0 0px 1000px var(--white) inset;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) {
+  .formField {
+    width: 410px;
+  }
+}
+
+.formField::placeholder {
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--grayFour);
+}
+
+.formImg {
+  position: absolute;
+}
+
+.btnForm {
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: 280px;
+  height: 40px;
+  margin-top: 25px;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--white);
+  background-color: var(--accentGreenColor);
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .btnForm {
+    width: 300px;
+  }
+}
+
+.btnLinkForm {
+  display: flex;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 40px;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accentBlueColor);
+  background-color: var(--white);
+  border: 1px solid var(--accentBlueColor);
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .btnLinkForm {
+    width: 300px;
+  }
+}
+
+.textErrorForm {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 280px;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--accentRoseColor);
+}
+
+@media screen and (min-width: 768px) {
+  .textErrorForm {
+    width: 410px;
+  }
+}
+
+.balanceWrap {
+  padding: 10px 32px;
+  width: 280px;
+  height: 80px;
+  text-align: left;
+  background: var(--white);
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .balanceWrap {
+    width: 336px;
+    padding: 10px 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .balanceWrap {
+    width: 395px;
+  }
+}
+
+.balanceTitle {
+  margin: 0px 0px 12px 0px;
+  font-family: var(--additionalFont);
+  font-size: 12px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: #A6A6A6;
+}
+
+.balanceText {
+  font-family: var(--mainFont);
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+.table {
+  padding: 10px 20px 10px;
+  width: 280px;
+  height: 174px;
+  font-family: var(--additionalFont);
+  color: var(--white);
+  background-color: var(--accentBlueColor);
+  background-repeat: no-repeat;
+  background-position: bottom, top;
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .table {
+    width: 336px;
+    height: 182px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .table {
+    padding: 15px 20px 134px;
+    width: 393px;
+    height: 347px;
+  }
+}
+
+.tableHead {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.tableHeadItem {
+  padding-bottom: 10px;
+}
+
+@media screen and (min-width: 1280px) {
+  .tableHeadItem {
+    padding-bottom: 30px;
+  }
+}
+
+.tableBody {
+  position: relative;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.tableItemLeft {
+  text-align: left;
+}
+
+@media screen and (min-width: 1280px) {
+  .tableItemLeft {
+    text-align: center;
+  }
+}
+
+.tableItemCenter {
+  text-align: center;
+}
+
+.tableItemRight {
+  text-align: right;
+}
+
+@media screen and (min-width: 1280px) {
+  .tableItemRight {
+    text-align: center;
+  }
+}
+
+.linkLogo {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+}
+
+.logoImg {
+  margin-right: 15px;
+  width: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .logoImg {
+    margin-right: 20px;
+    width: 40px;
+  }
+}
+
+.logoText {
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) {
+  .logoText {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navigationList {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
+.navigationText {
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+@media screen and (max-width: 767px) {
+  .navigationText {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navigationText {
+    vertical-align: middle;
+  }
+}
+
+.navigationLink {
+  font-family: var(--mainFont);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+.navigationActiveLink {
+  font-weight: 700;
+}
+
+.navigationImg {
+  background-color: aqua;
+}
+
+@media screen and (min-width: 768px) {
+  .navigationImg {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .navigationCurrencyItem {
+    display: none;
+  }
+}
+
+.navigationText {
+  display: inline-block;
+}
+
+@media screen and (max-width: 767px) {
+  .navigationText {
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */
