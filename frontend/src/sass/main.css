@@ -379,38 +379,6 @@ button {
   }
 }
 
-.linkLogo {
-  display: flex;
-  align-items: center;
-  color: var(--black);
-}
-
-.logoImg {
-  margin-right: 15px;
-  width: 30px;
-}
-
-@media screen and (min-width: 768px) {
-  .logoImg {
-    margin-right: 20px;
-    width: 40px;
-  }
-}
-
-.logoText {
-  font-family: var(--mainFont);
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 1.5;
-  vertical-align: middle;
-}
-
-@media screen and (min-width: 768px) {
-  .logoText {
-    font-size: 30px;
-  }
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -448,6 +416,38 @@ button {
 @media screen and (max-width: 767px) {
   .headerLogout {
     display: none;
+  }
+}
+
+.linkLogo {
+  display: flex;
+  align-items: center;
+  color: var(--black);
+}
+
+.logoImg {
+  margin-right: 15px;
+  width: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .logoImg {
+    margin-right: 20px;
+    width: 40px;
+  }
+}
+
+.logoText {
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+
+@media screen and (min-width: 768px) {
+  .logoText {
+    font-size: 30px;
   }
 }
 /*# sourceMappingURL=main.css.map */

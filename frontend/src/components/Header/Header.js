@@ -1,7 +1,7 @@
+import "../../css/main.min.css";
 import { NavLink } from "react-router-dom";
 import logout from "../../img/icons/logout.svg";
 import LogoWallet from "../LogoWallet/LogoWallet";
-import "../../sass/main.min.css";
 
 function Header() {
   return (
