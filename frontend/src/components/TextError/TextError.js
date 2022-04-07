@@ -1,5 +1,5 @@
 import React from "react";
-import "../../sass/main.css";
+import "../../css/main.min.css";
 import "../../sass/main.scss";
 
 function TextError(props) {
