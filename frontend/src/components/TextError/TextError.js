@@ -1,6 +1,6 @@
 import React from "react";
-import "../../sass/main.css";
-import "../../sass/main.scss";
+
+import "../../css/main.min.css";
 
 function TextError(props) {
   return <div className="textErrorForm">{props.children}</div>;
