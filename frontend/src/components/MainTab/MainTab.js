@@ -5,14 +5,14 @@ import "../../css/main.min.css";
 import Loader from "../Loader";
 
 const HomeTab = lazy(() =>
-  import("../../components/homeTab" /* webpackChunkName: "home-tab-view" */)
+  import("../../components/homeTab/HomeTab" /* webpackChunkName: "home-tab-view" */)
 );
 
-// const DiagramTab = lazy(() =>
-//   import(
-//     "../../components/DiagramTab" /* webpackChunkName: "diagram-tab-view" */
-//   )
-// );
+const DiagramTab = lazy(() =>
+  import(
+    "../../components/DiagramTab/DiagramTab" /* webpackChunkName: "diagram-tab-view" */
+  )
+);
 
 function MainTab() {
   return (
@@ -20,9 +20,9 @@ function MainTab() {
       <Route path={"/home"}>
         <HomeTab />
       </Route>
-      {/* <Route path={"/diagram"}>
+      <Route path={"/diagram"}>
         <DiagramTab />
-      </Route> */}
+      </Route>
     </Suspense>
   );
 }

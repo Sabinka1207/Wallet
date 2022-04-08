@@ -173,6 +173,12 @@ button {
   border: none;
 }
 
+@media screen and (max-width: 767px) {
+  .dashboardPageWrap {
+    padding-bottom: 50px;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .dashboardPageWrap {
     height: 1024px;

@@ -8,7 +8,7 @@ import Navigation from "../../components/Navigation/Navigation";
 import Balance from "../../components/Balance";
 import Currency from "../../components/Currency";
 import DiagramTab from '../../components/DiagramTab';
-import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
+// import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 // import MainTab from "../../components//MainTab/MainTab";
 
 
@@ -54,7 +54,7 @@ function DashboardPage() {
             <section className="dashboardPageMain">
             <DiagramTab />
               {/* <MainTab></MainTab> */}
-              <ButtonAddTransaction />
+              {/* <ButtonAddTransaction /> */}
             </section>
           </div>
         </div>
