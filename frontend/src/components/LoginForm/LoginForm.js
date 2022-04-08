@@ -22,7 +22,7 @@ export default function LoginForm() {
   });
 
   const onSubmit = (values, submitProps) => {
-    console.log(values);
+    // console.log(values);
     submitProps.setSubmittingvalues(false);
     submitProps.resetForm();
   };
