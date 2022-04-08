@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Loader from "../Loader/Loader";
-import "../../sass/main.css";
+import "../../css/main.min.css";
 
 const axios = require("axios");
 

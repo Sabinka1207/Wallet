@@ -1,4 +1,4 @@
-import "../../sass/main.css";
+import "../../css/main.min.css";
 
 function Balance() {
   return (

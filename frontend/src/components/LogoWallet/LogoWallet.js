@@ -1,6 +1,6 @@
 import wallet from "../../img/icons/logo.svg";
 
-import "../../sass/main.css";
+import "../../css/main.min.css";
 
 function LogoWallet() {
   return (

@@ -10,7 +10,7 @@ import ButtomLink from "../ButtonLinkForm";
 import email from "../../img/icons/email.svg";
 import password from "../../img/icons/lock.svg";
 
-import "../../sass/main.css";
+import "../../css/main.min.css";
 
 export default function LoginForm() {
   const initialValues = {
