@@ -11,9 +11,9 @@ const DashboardPage = lazy(() => import("./views/DashboardPage"));
 function App() {
   return (
     <div>
-      <DashboardPage/>
+      {/* <DashboardPage/>
       <Header></Header>
-      <Navigation></Navigation>
+      <Navigation></Navigation> */}
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<RegisterPage />} />

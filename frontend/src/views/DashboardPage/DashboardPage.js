@@ -10,7 +10,7 @@ function DashboardPage() {
       </div>
       <div className="dashboardPageMain"></div>
     </div>
-    {/* <DiagramTab/> */}
+    <DiagramTab/>
     </>
   );
 }
