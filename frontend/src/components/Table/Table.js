@@ -19,39 +19,41 @@ function Table (){
         </select>
         <table className="chart__table">
             <thead className="table__head">
-            <tr>
-                <th>Категория</th>
-                <th>Сумма</th>
-            </tr>
+                <tr>
+                    <th>Категория</th>
+                    <th>Сумма</th>
+                </tr>
             </thead>
-            <tr>
-                <td>Основные расходы</td>
-                <td>14523</td>
-                
-            </tr>
-            <tr>
-                <td>Основные расходы</td>
-                <td>87000</td>
-                
-            </tr>
-            <tr>
-                <td>Основные расходы</td>
-                <td>20001</td>
-            </tr>
-            <tr>
-                <td>Основные расходы</td>
-                <td>4555</td>
-                
-            </tr>
-            <tr>
-                <td>Основные расходы</td>
-                <td>6000</td>
-            </tr>
-            <tr>
-                <td>Продукты</td>
-                <td>450</td>
-                
-            </tr>
+            <tbody>
+                <tr>
+                    <td>Основные расходы</td>
+                    <td>14523</td>
+                    
+                </tr>
+                <tr>
+                    <td>Основные расходы</td>
+                    <td>87000</td>
+                    
+                </tr>
+                <tr>
+                    <td>Основные расходы</td>
+                    <td>20001</td>
+                </tr>
+                <tr>
+                    <td>Основные расходы</td>
+                    <td>4555</td>
+                    
+                </tr>
+                <tr>
+                    <td>Основные расходы</td>
+                    <td>6000</td>
+                </tr>
+                <tr>
+                    <td>Продукты</td>
+                    <td>450</td>
+                    
+                </tr>
+            </tbody>
         </table>
         <p className="total__text">Расходы: <span className="total__sum">22 549.24</span></p>
         <p className="total__text">Доходы:: <span className="total__sum">27 350.00</span></p>
