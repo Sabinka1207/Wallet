@@ -29,7 +29,6 @@ const transactionSchema = Schema(
     owner: {
       type: Schema.Types.ObjectId,
       ref: 'user',
-      required: true,
     },
   },
   { versionKey: false, timestamps: true },
@@ -41,6 +40,7 @@ const joiAddTransaction = Joi.object({
   comment: Joi.string(),
   income: Joi.boolean(),
   category: Joi.string().required(),
+  currentBalance: Joi.string(),
 });
 
 const Transaction = model('transaction', transactionSchema);

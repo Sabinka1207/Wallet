@@ -3,9 +3,10 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
-import TextError from "../TextError";
+import LogoWallet from "../LogoWallet/LogoWallet";
 import Bottom from "../ButtonForm";
 import ButtomLink from "../ButtonLinkForm";
+import TextError from "../TextError";
 
 import email from "../../img/icons/email.svg";
 import password from "../../img/icons/lock.svg";
@@ -21,11 +22,9 @@ export default function LoginForm() {
   const validationSchema = yup.object().shape({
     email: yup
       .string()
-      .email("Введите, пожалуйста, Ваш email корректно.")
-      .required("Обязательное поле. Введите, пожалуйста, Ваш email."),
-    password: yup
-      .string()
-      .required("Обязательное поле. Введите, пожалуйста, Ваш пароль."),
+      .email("Введите Ваш email корректно.")
+      .required("Обязательное поле. Введите, Ваш email."),
+    password: yup.string().required("Обязательное поле. Введите Ваш пароль."),
   });
 
   const onSubmit = (values, submitProps) => {
@@ -44,7 +43,10 @@ export default function LoginForm() {
       >
         {(formik) => {
           return (
-            <div className="formComponent">
+            <div className="formComponentLog">
+              <div className="logoForm">
+                <LogoWallet />
+              </div>
               <Form className="form">
                 <div className="inputError">
                   <div className="input">
@@ -84,8 +86,8 @@ export default function LoginForm() {
                   <ErrorMessage name="password" component={TextError} />
                 </div>
                 <Bottom bottomTitle={"вход"} disabled={!formik.isValid} />
+                <ButtomLink bottomTitle={"регистрация"} link={"/"} />
               </Form>
-              <ButtomLink bottomTitle={"регистрация"} link={"/"} />
             </div>
           );
         }}

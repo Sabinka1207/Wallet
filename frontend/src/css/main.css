@@ -19,6 +19,13 @@
           box-sizing: border-box;
 }
 
+body {
+  font-family: var(--additionalFont);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 ul {
   list-style: none;
 }
@@ -218,6 +225,8 @@ button {
 }
 
 .dashboardPageMain {
+  margin-left: auto;
+  margin-right: auto;
   width: 280px;
   height: 100%;
 }
@@ -232,12 +241,215 @@ button {
 @media screen and (min-width: 1280px) {
   .dashboardPageMain {
     width: 715px;
-    height: 312px;
     padding-left: 65px;
   }
 }
 
-.formComponent {
+.Modal__controllers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.Modal__controllers > button {
+  border-radius: 20px;
+  width: 300px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 0;
+}
+
+.Modal__add {
+  background-color: var(--accentGreenColor);
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.Modal__cancel {
+  color: var(--accentBlueColor);
+  border: 1px solid var(--accentBlueColor);
+  background-color: transparent;
+}
+
+.ModalAddTransaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-family: var(--additionalFont);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  background-color: var(--white);
+  position: relative;
+  z-index: 200;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Modal__heading {
+  font-family: var(--mainFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1, 5;
+  text-align: center;
+}
+
+.Modal__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.Switcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Switcher__control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  border-radius: 30px;
+  margin: 0 20px;
+}
+
+.Switcher__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.Switcher__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: var(--white);
+  border: 1px solid var(--grayFive);
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.Switcher__marker {
+  position: relative;
+  background-color: var(--accentGreenColor);
+  background-image: url("/src/img/icons/add.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  -webkit-box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+          box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+}
+
+.Switcher__toggle:checked ~ .Switcher__marker {
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  background-color: var(--accentRoseColor);
+  background-image: url(/src/img/icons/spending-button.svg);
+  -webkit-box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
+          box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
+}
+
+.Switcher__option {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--grayFive);
+}
+
+.Switcher__toggle:checked ~ .Switcher__income {
+  color: var(--grayFive);
+}
+
+.Switcher__toggle:checked ~ .Switcher__spending {
+  color: var(--accentRoseColor);
+}
+
+@media screen and (max-width: 767px) {
+  .ModalAddTransaction {
+    height: 100vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 100;
+  }
+  .ModalAddTransaction {
+    width: 540px;
+    height: 603px;
+    border-radius: 20px;
+    padding: 40px 73px 60px 73px;
+  }
+}
+
+.formComponentLog {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -246,21 +458,56 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 40px;
+  padding-top: 15px;
+  padding-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) {
-  .formComponent {
+  .formComponentLog {
     width: 535px;
     height: 470px;
     border-radius: 20px;
+    background-color: var(--white);
   }
 }
 
+.formComponentReg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+@media screen and (min-width: 768px) {
+  .formComponentReg {
+    width: 535px;
+    height: 616px;
+    border-radius: 20px;
+    background-color: var(--white);
+  }
+}
+
+.logoForm {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .form {
-  margin-top: 60px;
+  margin-top: 20px;
 }
 
 .input {
@@ -268,7 +515,7 @@ button {
 }
 
 .inputError:not(:first-child) {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .formField {
@@ -337,13 +584,49 @@ button {
   position: absolute;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: var(--accentGreenColor);
+  color: var(--white);
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  top: -5px;
+  left: 105%;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.progressForm {
+  margin-top: 5px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .progressForm {
+    width: 410px;
+  }
+}
+
 .btnForm {
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   width: 280px;
   height: 40px;
-  margin-top: 25px;
+  margin-top: 40px;
   font-family: var(--additionalFont);
   font-style: normal;
   font-weight: 400;
@@ -352,6 +635,13 @@ button {
   color: var(--white);
   background-color: var(--accentGreenColor);
   border-radius: 20px;
+}
+
+.btnForm:hover, .btnForm:focus {
+  -webkit-box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media screen and (min-width: 768px) {
@@ -364,7 +654,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
   -webkit-box-align: center;
@@ -386,6 +676,13 @@ button {
   background-color: var(--white);
   border: 1px solid var(--accentBlueColor);
   border-radius: 20px;
+}
+
+.btnLinkForm:hover, .btnLinkForm:focus {
+  -webkit-box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 @media screen and (min-width: 768px) {
@@ -810,6 +1107,201 @@ button {
     background: rgba(255, 255, 255, 0.4);
     -webkit-backdrop-filter: blur(50px);
             backdrop-filter: blur(50px);
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .diagramTab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .diagramTab {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.title {
+  font-family: var(----mainFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .title {
+    margin-bottom: 20px;
+    margin-left: 8px;
+  }
+}
+
+.chart {
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .chart {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .chart {
+    width: 288px;
+    margin-right: 32px;
+  }
+}
+
+.select {
+  background: #eae3e3;
+  border-radius: 30px;
+  padding: 12px 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .select {
+    width: 160px;
+    padding: 16px 13px;
+    margin-right: 16px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .select {
+    width: 182px;
+    margin-right: 32px;
+    margin-bottom: 20px;
+  }
+}
+
+.text {
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 2;
+}
+
+.chart__table {
+  width: 100%;
+  margin-bottom: 16px;
+  border-collapse: collapse;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .chart__table {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .chart__table {
+    width: 395px;
+    margin-bottom: 20px;
+  }
+}
+
+.chart__table th {
+  font-weight: bold;
+  padding: 7px;
+  background: white;
+  border: none;
+  text-align: left;
+  font-size: 15px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .chart__table th {
+    padding: 20px;
+  }
+}
+
+.chart__table head {
+  border-radius: 30px;
+}
+
+.chart__table th:first-child {
+  border-radius: 30px 0 0 30px;
+}
+
+.chart__table th:last-child {
+  border-radius: 0 30px 30px 0;
+}
+
+.chart__table td {
+  border: #eae3e3;
+  padding: 14px;
+  border-top: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  font-size: 15px;
+}
+
+.chart__table tr {
+  border: #eae3e3;
+}
+
+.table__head {
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  width: 395px;
+  padding: 28px 0;
+}
+
+.table__head td {
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.total__text {
+  margin-left: 20px;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 17px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .total__text {
+    margin-left: 14px;
+  }
+}
+
+.total__sum {
+  margin-left: 64px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .total__sum {
+    margin-left: 140px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .total__sum {
+    margin-left: 204px;
   }
 }
 /*# sourceMappingURL=main.css.map */
