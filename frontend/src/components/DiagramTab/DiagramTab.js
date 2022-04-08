@@ -7,17 +7,17 @@ import {getAllStatistics, isLoading, error } from '../../redux/statistics/statis
 import getStatistics from '../../redux/statistics/statisticsOperation';
 
 function DiagramTab(){
-    const [data,setData] = useState([])
-    const statistics = useSelector(getAllStatistics)
-    const loading = useSelector(isLoading)
-    const errorStat = useSelector(error)
-    console.log(statistics);
-    const dispatch = useDispatch();
+    // const [data,setData] = useState([])
+    // const statistics = useSelector(getAllStatistics)
+    // const loading = useSelector(isLoading)
+    // const errorStat = useSelector(error)
+    // console.log(statistics);
+    // const dispatch = useDispatch();
 
-    useEffect(()=>{
-        dispatch(getStatistics())
-        // setData(dispatch(getStatistics()))
-    },[])
+    // useEffect(()=>{
+    //     dispatch(getStatistics())
+    //     // setData(dispatch(getStatistics()))
+    // },[])
     return(
         <div className='diagram'>
             <p className='title'>Статистика</p>
