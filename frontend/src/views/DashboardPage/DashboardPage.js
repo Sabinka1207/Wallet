@@ -1,16 +1,21 @@
-// import "../sass/main.css";
-import React from "react";
+import DiagramTab from '../../components/DiagramTab';
+import '../../css/main.min.css';
+import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 import HomeTab from '../../components/homeTab/HomeTab';
 
 function DashboardPage() {
   return (
-    <div className="dashboardPageContainer">
-      <div className="dashboardPageSidebar"></div>
-      <div className="dashboardPageMain">
-        <HomeTab />
+    <>
+      <div className="dashboardPageContainer">
+        <div className="dashboardPageSidebar">
+          <span>DashboardPage</span>
+          <ButtonAddTransaction />
+          <HomeTab />
+        </div>
+        <div className="dashboardPageMain"></div>
       </div>
-
-    </div>
+      <DiagramTab />
+    </>
   );
 }
 

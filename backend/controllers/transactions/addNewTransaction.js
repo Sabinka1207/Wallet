@@ -1,20 +1,24 @@
-const { Transaction} = require('../../models/transaction');
+const { Transaction, schemas } = require('../../models/transaction');
 
-// --------for testing ---------
+const CreateError = require('http-errors');
 
 const addNewTransaction = async (req, res, next) => {
-  const {_id} = req.user;
-  const {date,comment,income} = req.body;
+  try {
+    const { error } = schemas.add.validate(req.body);
+    if (error) {
+      console.log(error.message);
+      throw new CreateError(400, error.message);
+    }
 
-  const newTransaction = await Transaction.create({date,comment,income,owner:_id});
-  res.json({
-      status: 'success',
-      code: 201,
-      data:  {response: newTransaction},
-  });
-
-}
-
-// -------------------------------
+    const data = { ...req.body, owner: req.user.id };
+    const result = await Transaction.create(data);
+    res.status(201).json(result);
+  } catch (error) {
+    if (error.message.toLowerCase().includes('validation failed')) {
+      error.status = 400;
+    }
+    next(error);
+  }
+};
 
 module.exports = addNewTransaction;
