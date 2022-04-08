@@ -3,14 +3,14 @@ import ModalAddTransaction from '../../components/ModalAddTransaction/ModalAddTr
 import { ReactComponent as AddTransaction } from '../../img/icons/add.svg';
 
 function ButtonAddTransaction() {
-  const [showModal, setShowModal] = useState(false);
-  console.log(showModal);
+  const [isOpen, setIsOpen] = useState(false);
+  console.log(isOpen);
   return (
     <>
-      <button onClick={() => setShowModal(true)}>
+      <button onClick={() => setIsOpen(true)}>
         <AddTransaction />
       </button>
-      {showModal && <ModalAddTransaction />}
+      {isOpen && <ModalAddTransaction closeModal={setIsOpen} />}
     </>
   );
 }
