@@ -1,9 +1,21 @@
+
 .select{
+    background: rgb(234, 227, 227);
     border-radius: 30px;
     padding: 12px 20px;
-    width: 182px;
-    margin-right: 32px;
+    width: 100%;
     margin-bottom: 20px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px){
+        width: 160px;
+        padding: 16px 13px;
+        margin-right: 16px;
+    }
+    @media screen and (min-width: 1280px){
+        width: 182px;
+        margin-right: 32px;
+        margin-bottom: 20px;
+    }
 }
 .text{
     font-family: var(--additionalFont);
@@ -13,53 +25,58 @@
     line-height: 2;
 }
 .chart__table {
-    // background: green;
-	width: 395px;
-	margin-bottom: 20px;
-	border: 5px solid #fff;
-	// border-top: 5px solid #fff;
-	// border-bottom: 3px solid #fff;
+    width: 100%;
+    margin-bottom: 16px;	
 	border-collapse: collapse; 
-	outline: 3px solid #ffd300;	
 	font-family: var(--additionalFont);
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 1.5;
-}
-.chart__table th {
-    
-	font-weight: bold;
-	padding: 7px;
-	background: white;
-	border: none;
-	text-align: left;
-	font-size: 15px;
-}
-.chart__table head{
-    border-radius: 30px;
-}
-.chart__table th:first-child{
-    background: green;
-    border-radius: 30px 0 0 30px;
-}
-.chart__table th:last-child{
-    background: green;
-    border-radius: 0 30px 30px 0;
-}
-.chart__table td {
-	padding: 7px;
-	border: none;
-	border-top: 3px solid #fff;
-	border-bottom: 3px solid #fff;
-	font-size: 15px;
-}
 
+    @media screen and (min-width: 768px) and (max-width: 1279px){
+        width: 336px;
+    }
+    @media screen and (min-width: 1280px){
+        width: 395px;
+	    margin-bottom: 20px;
+    }
+
+    & th {
+        font-weight: bold;
+        padding: 7px;
+        background: white;
+        border: none;
+        text-align: left;
+        font-size: 15px;
+
+        @media screen and (min-width: 768px) and (max-width: 1279px){
+            padding: 20px;
+        }
+    }
+    & head{
+        border-radius: 30px;
+    }
+    & th:first-child{
+        border-radius: 30px 0 0 30px;
+    }
+    & th:last-child{
+        border-radius: 0 30px 30px 0;
+    }
+    & td {
+        border: rgb(234, 227, 227);;
+        padding: 14px;
+        border-top: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        font-size: 15px;
+    }
+    
+    & tr {
+        border: rgb(234, 227, 227);
+    }
+}
 
 .table__head{
-    background-color: red;
-    border: 1px solid rgb(26, 7, 7);
-    border-radius: 30px;
     font-family: var(--additionalFont);
     font-style: normal;
     font-weight: 700;
@@ -67,23 +84,38 @@
     line-height: 1.5;
     width: 395px;
     padding: 28px 0;
+
+    & td{
+        font-family: var(--additionalFont);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+    }
 }
 
-.table__head td{
-    font-family: var(--additionalFont);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
-}
-.total__text{
-    margin-left: 12px;
+.total__text{    
+    margin-left: 20px;
     font-family: var(--additionalFont);
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.5;
+    margin-bottom: 17px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px){
+        margin-left: 14px;
+    }
 }
 .total__sum{
-    margin-left: 204px;
+    margin-left: 64px;
+
+    @media screen and (min-width: 768px) and (max-width: 1279px){
+        margin-left: 140px;
+    }
+
+    @media screen and (min-width: 1280px){
+        margin-left: 204px;
+    }
+    
 }
