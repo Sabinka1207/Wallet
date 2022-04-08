@@ -1,5 +1,8 @@
+// import { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+
 import Header from "../../components/Header/Header";
-// import Navigation from "../../components/Navigation";
+import Navigation from "../../components/Navigation/Navigation";
 import Balance from "../../components/Balance";
 import Currency from "../../components/Currency";
 // import MainTab from "../../components//MainTab/MainTab";
@@ -7,17 +10,51 @@ import Currency from "../../components/Currency";
 import "../../css/main.min.css";
 
 function DashboardPage() {
+  // const dispatch = useDispatch();
+  // const load = useSelector(getLoader);
+
+  // useEffect(() => {
+  //   dispatch(fetchTrasaction());
+  // }, [dispatch]);
+
+  // useEffect(() => {
+  //       async function getCurrency() {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11"
+  //       );
+
+  //       const currencyArray = response.data.filter(
+  //         (item) => item.ccy !== "RUR"
+  //       );
+
+  //       setCurrency(currencyArray);
+  //       setLoad(false);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  // });
+
   return (
-    <div className="dashboardPageContainer">
+    <>
       <Header></Header>
-      <div className="dashboardPageSidebar">
-        {/* <Navigation></Navigation> */}
-        <Balance></Balance>
-        <Currency></Currency>
-        <span>DashboardPage</span>
-      </div>
-      <div className="dashboardPageMain">{/* <MainTab></MainTab> */}</div>
-    </div>
+      <main className="dashboardMain">
+        <div className="dashboardPageContainer">
+          <div className=" container dashboardPageWrap">
+            <aside className="dashboardPageSidebar">
+              <div className="dashboardPageIner">
+                <Navigation></Navigation>
+                <Balance></Balance>
+              </div>
+              <Currency></Currency>
+            </aside>
+            <section className="dashboardPageMain">
+              {/* <MainTab></MainTab> */}
+            </section>
+          </div>
+        </div>
+      </main>
+    </>
   );
 }
 
