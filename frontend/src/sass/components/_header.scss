@@ -2,13 +2,11 @@
         display: flex;
         justify-content:space-between;
         align-items:center;
-        
-        padding: 15px 20px;
-        
-        width: 100%;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
         height: 60px;
         
-        // background-color: aqua;            
         background-color: #fff;
 }
 
@@ -23,19 +21,27 @@
 }
 
 .headerUserName{
-        padding-right: 12px;
-        
         @media screen and (min-width: 768px) {
+        padding-right: 12px;
         border-right: 1px solid var(--grayFour);
         }
 
 }
 
 .headerLogoutImg{
-       margin-right: 12px;
-       margin-left: 12px;
+        margin: 0px 0px 0px 8px;
+
+        width: 18px;
+        height: 18px;
+
+        cursor: pointer;
+
+        @media screen and (min-width: 768px) {
+                margin-right: 12px;
+                margin-left: 12px;
+        }
   
-        fill: var(--grayFour);
+        // fill: var(--grayFour);
 }
 
 .headerLogout{
