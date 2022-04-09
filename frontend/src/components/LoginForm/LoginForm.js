@@ -1,4 +1,5 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
@@ -8,12 +9,16 @@ import Bottom from "../ButtonForm";
 import ButtomLink from "../ButtonLinkForm";
 import TextError from "../TextError";
 
+import authOperation from "../../redux/auth/authOperation";
+
 import email from "../../img/icons/email.svg";
 import password from "../../img/icons/lock.svg";
 
 import "../../css/main.min.css";
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+
   const initialValues = {
     email: "",
     password: "",
@@ -27,10 +32,13 @@ export default function LoginForm() {
     password: yup.string().required("Обязательное поле. Введите Ваш пароль."),
   });
 
-  const onSubmit = (values, submitProps) => {
-    console.log(values);
-    submitProps.setSubmittingvalues(false);
-    submitProps.resetForm();
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    const { email, password } = values;
+
+    dispatch(authOperation.logIn({ email, password }));
+
+    setSubmitting(false);
+    resetForm();
   };
 
   return (
