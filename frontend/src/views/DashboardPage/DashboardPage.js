@@ -1,18 +1,65 @@
+// import { useEffect } from "react";
+// import { useSelector, useDispatch } from "react-redux";
+
+import "../../css/main.min.css";
+
+import Header from "../../components/Header/Header";
+import Navigation from "../../components/Navigation/Navigation";
+import Balance from "../../components/Balance";
+import Currency from "../../components/Currency";
 import DiagramTab from '../../components/DiagramTab';
-import '../../css/main.min.css';
-import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
+// import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
+// import MainTab from "../../components//MainTab/MainTab";
+
 
 function DashboardPage() {
+  // const dispatch = useDispatch();
+  // const load = useSelector(getLoader);
+
+  // useEffect(() => {
+  //   dispatch(fetchTrasaction());
+  // }, [dispatch]);
+
+  // useEffect(() => {
+  //       async function getCurrency() {
+  //     try {
+  //       const response = await axios.get(
+  //         "https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11"
+  //       );
+
+  //       const currencyArray = response.data.filter(
+  //         (item) => item.ccy !== "RUR"
+  //       );
+
+  //       setCurrency(currencyArray);
+  //       setLoad(false);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  // });
+
   return (
     <>
-      <div className="dashboardPageContainer">
-        <div className="dashboardPageSidebar">
-          <span>DashboardPage</span>
-          <ButtonAddTransaction />
+      <Header></Header>
+      <main className="dashboardMain">
+        <div className="dashboardPageContainer">
+          <div className=" container dashboardPageWrap">
+            <aside className="dashboardPageSidebar">
+              <div className="dashboardPageIner">
+                <Navigation></Navigation>
+                <Balance></Balance>
+              </div>
+              <Currency></Currency>
+            </aside>
+            <section className="dashboardPageMain">
+            <DiagramTab />
+              {/* <MainTab></MainTab> */}
+              {/* <ButtonAddTransaction /> */}
+            </section>
+          </div>
         </div>
-        <div className="dashboardPageMain"></div>
-      </div>
-      <DiagramTab />
+      </main>
+
     </>
   );
 }
