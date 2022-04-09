@@ -13,7 +13,7 @@ import email from '../../img/icons/email.svg';
 import password from '../../img/icons/lock.svg';
 import name from '../../img/icons/name.svg';
 
-import '../../css/main.min.css';
+import "../../css/main.min.css";
 
 export default function RegisterForm() {
   const initialValues = {
