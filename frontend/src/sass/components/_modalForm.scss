@@ -1,0 +1,88 @@
+.Modal__controllers {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.Modal__controllers>button {
+    border-radius: 20px;
+    width: 300px;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 13px 0;
+}
+
+.Modal__add {
+    background-color: var(--accentGreenColor);
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.Modal__cancel {
+    color: var(--accentBlueColor);
+    border: 1px solid var(--accentBlueColor);
+    background-color: transparent;
+}
+
+.Modal__heading {
+    font-family: var(--mainFont);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1, 5;
+    text-align: center;
+}
+
+.Modal__form {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+.Modal__date{
+    position: relative;
+}
+
+// .Modal__calendar{
+//     position: absolute;
+// top: 20px;
+//     background-color: var(--white);
+//     padding: 15px;
+//     border-radius: 20px;
+//     box-shadow: 0px 6px 15px rgba(111, 92, 98, 0.5);
+//     z-index: 300;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+// }
+
+// .Modal__overlay{
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         width: 100vw;
+//         height: 100vh;
+//         display: flex;
+//         justify-content: center;
+//         background-color: rgba(0, 0, 0, 0.1);
+//         z-index: 200;
+    
+// }
+
+
+// .rdtDay{
+//     text-align: center;
+// }
+
+// .dow{
+//     width: 37px;
+// }
+
+
+
+
+

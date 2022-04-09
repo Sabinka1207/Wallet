@@ -4,13 +4,17 @@ import { ReactComponent as AddTransaction } from '../../img/icons/add.svg';
 
 function ButtonAddTransaction() {
   const [isOpen, setIsOpen] = useState(false);
-  console.log(isOpen);
+
+  const modalOpen = () => {
+    setIsOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>
+      <button onClick={modalOpen} className="ButtonAdd">
         <AddTransaction />
       </button>
-      {isOpen && <ModalAddTransaction closeModal={setIsOpen} />}
+      {isOpen && <ModalAddTransaction isOpen={setIsOpen} />}
     </>
   );
 }

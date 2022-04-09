@@ -6,6 +6,8 @@
   --accentBlueColor: #4A56E2;
   --accentGreenColor: #24CCA7;
   --accentRoseColor: #FF6596;
+  --buttonGreenShadow:  0px 6px 15px rgba(36, 204, 167, 0.5);
+  --buttonRoseShadow:0px 6px 15px rgba(255, 101, 150, 0.5);
   --mainFont: 'Poppins', sans-serif;
   --additionalFont: "Circe", sans-serif;
 }
@@ -98,6 +100,56 @@ button {
           transform: translate(-50%, -50%);
 }
 
+.ButtonAdd {
+  background-color: var(--accentGreenColor);
+  height: 44px;
+  width: 44px;
+  position: fixed;
+  border-radius: 50%;
+  -webkit-box-shadow: var(--buttonGreenShadow);
+          box-shadow: var(--buttonGreenShadow);
+}
+
+@media screen and (max-width: 767px) {
+  .ButtonAdd {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .ButtonAdd {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+.ModalAddTransaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: var(--additionalFont);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  background-color: var(--white);
+  position: absolute;
+  z-index: 200;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
 .Modal__controllers {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -131,28 +183,6 @@ button {
   color: var(--accentBlueColor);
   border: 1px solid var(--accentBlueColor);
   background-color: transparent;
-}
-
-.ModalAddTransaction {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  font-family: var(--additionalFont);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  background-color: var(--white);
-  position: relative;
-  z-index: 200;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .Modal__heading {
@@ -242,8 +272,8 @@ button {
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
-  -webkit-box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
-          box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+  -webkit-box-shadow: var(--buttonGreenShadow);
+          box-shadow: var(--buttonGreenShadow);
 }
 
 .Switcher__toggle:checked ~ .Switcher__marker {
@@ -251,8 +281,8 @@ button {
           transform: translateX(100%);
   background-color: var(--accentRoseColor);
   background-image: url(/src/img/icons/spending-button.svg);
-  -webkit-box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
-          box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
+  -webkit-box-shadow: var(--buttonRoseShadow);
+          box-shadow: var(--buttonRoseShadow);
 }
 
 .Switcher__option {
@@ -272,6 +302,10 @@ button {
 @media screen and (max-width: 767px) {
   .ModalAddTransaction {
     height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    padding: 20px 20px 50px 20px;
   }
 }
 
@@ -300,6 +334,66 @@ button {
     border-radius: 20px;
     padding: 40px 73px 60px 73px;
   }
+}
+
+.Modal__controllers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.Modal__controllers > button {
+  border-radius: 20px;
+  width: 300px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 0;
+}
+
+.Modal__add {
+  background-color: var(--accentGreenColor);
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.Modal__cancel {
+  color: var(--accentBlueColor);
+  border: 1px solid var(--accentBlueColor);
+  background-color: transparent;
+}
+
+.Modal__heading {
+  font-family: var(--mainFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1, 5;
+  text-align: center;
+}
+
+.Modal__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.Modal__date {
+  position: relative;
 }
 
 .formComponentLog {
