@@ -6,6 +6,8 @@
   --accentBlueColor: #4A56E2;
   --accentGreenColor: #24CCA7;
   --accentRoseColor: #FF6596;
+  --buttonGreenShadow:  0px 6px 15px rgba(36, 204, 167, 0.5);
+  --buttonRoseShadow:0px 6px 15px rgba(255, 101, 150, 0.5);
   --mainFont: 'Poppins', sans-serif;
   --additionalFont: "Circe", sans-serif;
 }
@@ -98,6 +100,22 @@ button {
           transform: translate(-50%, -50%);
 }
 
+
+.ButtonAdd {
+  background-color: var(--accentGreenColor);
+  height: 44px;
+  width: 44px;
+  position: fixed;
+  border-radius: 50%;
+  -webkit-box-shadow: var(--buttonGreenShadow);
+          box-shadow: var(--buttonGreenShadow);
+}
+
+@media screen and (max-width: 767px) {
+  .ButtonAdd {
+    bottom: 20px;
+    right: 20px;
+
 .dashboardMain {
   width: 100%;
   min-width: 280px;
@@ -127,8 +145,10 @@ button {
   .dashboardPageContainer {
     height: 1024px;
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@1x.png), url(/public/image/table/BackGroudEllipsePinkTable@1x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
+    background-size: 510px auto,
+ 365px auto;
+    background-position: bottom,
+ top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -139,8 +159,10 @@ button {
   .dashboardPageContainer {
     height: 100%;
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@1x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@1x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
+    background-size: 490px auto,
+ 550px auto;
+    background-position: bottom,
+ top;
     background-position-x: 0%, 100%;
     background-position-y: 100%, 0%;
     background-repeat: no-repeat;
@@ -150,10 +172,14 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .dashboardPageContainer {
     background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
-    background-size: 510px auto, 365px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 510px auto,
+ 365px auto;
+    background-position: bottom,
+ top;
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
   }
 }
@@ -161,10 +187,14 @@ button {
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
   .dashboardPageContainer {
     background-image: url(/public/image/desktop/BackGroudEllipseBlueDesktop@2x.png), url(/public/image/desktop/BackGroudEllipsePinkDesktop@2x.png);
-    background-size: 490px auto, 550px auto;
-    background-position: bottom, top;
-    background-position-x: 0%, 100%;
-    background-position-y: 100%, 0%;
+    background-size: 490px auto,
+ 550px auto;
+    background-position: bottom,
+ top;
+    background-position-x: 0%,
+ 100%;
+    background-position-y: 100%,
+ 0%;
     background-repeat: no-repeat;
   }
 }
@@ -176,10 +206,43 @@ button {
 @media screen and (max-width: 767px) {
   .dashboardPageWrap {
     padding-bottom: 50px;
+
   }
 }
 
 @media screen and (min-width: 768px) {
+
+  .ButtonAdd {
+    bottom: 40px;
+    right: 40px;
+  }
+}
+
+.ModalAddTransaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-family: var(--additionalFont);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  background-color: var(--white);
+  position: absolute;
+  z-index: 200;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
   .dashboardPageWrap {
     height: 1024px;
     background: rgba(255, 255, 255, 0.4);
@@ -249,6 +312,7 @@ button {
     width: 715px;
     padding-left: 65px;
   }
+
 }
 
 .Modal__controllers {
@@ -284,28 +348,6 @@ button {
   color: var(--accentBlueColor);
   border: 1px solid var(--accentBlueColor);
   background-color: transparent;
-}
-
-.ModalAddTransaction {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  font-family: var(--additionalFont);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  background-color: var(--white);
-  position: relative;
-  z-index: 200;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .Modal__heading {
@@ -395,8 +437,8 @@ button {
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
-  -webkit-box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
-          box-shadow: 0px 6px 15px rgba(36, 204, 167, 0.5);
+  -webkit-box-shadow: var(--buttonGreenShadow);
+          box-shadow: var(--buttonGreenShadow);
 }
 
 .Switcher__toggle:checked ~ .Switcher__marker {
@@ -404,8 +446,8 @@ button {
           transform: translateX(100%);
   background-color: var(--accentRoseColor);
   background-image: url(/src/img/icons/spending-button.svg);
-  -webkit-box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
-          box-shadow: 0px 6px 15px rgba(255, 101, 150, 0.5);
+  -webkit-box-shadow: var(--buttonRoseShadow);
+          box-shadow: var(--buttonRoseShadow);
 }
 
 .Switcher__option {
@@ -425,6 +467,10 @@ button {
 @media screen and (max-width: 767px) {
   .ModalAddTransaction {
     height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    padding: 20px 20px 50px 20px;
   }
 }
 
@@ -453,6 +499,66 @@ button {
     border-radius: 20px;
     padding: 40px 73px 60px 73px;
   }
+}
+
+.Modal__controllers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.Modal__controllers > button {
+  border-radius: 20px;
+  width: 300px;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 0;
+}
+
+.Modal__add {
+  background-color: var(--accentGreenColor);
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.Modal__cancel {
+  color: var(--accentBlueColor);
+  border: 1px solid var(--accentBlueColor);
+  background-color: transparent;
+}
+
+.Modal__heading {
+  font-family: var(--mainFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1, 5;
+  text-align: center;
+}
+
+.Modal__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+
+.Modal__date {
+  position: relative;
 }
 
 .formComponentLog {
@@ -769,7 +875,8 @@ button {
   color: var(--white);
   background-color: var(--accentBlueColor);
   background-image: url(/public/image/mobile/currency_background_mount_mobile@1x.png), url(/public/image/mobile/currency_backgroud_head_mobile@1x.png);
-  background-size: auto 96px, auto 50px;
+  background-size: auto 96px,
+ auto 50px;
   background-repeat: no-repeat;
   background-position: bottom, top;
   border-radius: 30px;
@@ -786,7 +893,8 @@ button {
     width: 336px;
     height: 182px;
     background-image: url(/public/image/table/currency_background_mount_table@1x.png), url(/public/image/table/currency_backgroud_head_table@1x.png);
-    background-size: auto 120px, auto 50px;
+    background-size: auto 120px,
+ auto 50px;
   }
 }
 
@@ -796,28 +904,32 @@ button {
     width: 393px;
     height: 347px;
     background-image: url(/public/image/desktop/currency_background_mount_desktop@1x.png), url(/public/image/desktop/currency_backgroud_head_desktop@1x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px,
+ auto 60px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (max-width: 767px), screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 767px), screen and (min-resolution: 192dpi) and (max-width: 767px), screen and (min-resolution: 2dppx) and (max-width: 767px) {
   .table {
     background-image: url(/public/image/mobile/currency_background_mount_mobile@2x.png), url(/public/image/mobile/currency_backgroud_head_mobile@2x.png);
-    background-size: auto 96px, auto 50px;
+    background-size: auto 96px,
+ auto 50px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
   .table {
     background-image: url(/public/image/table/currency_background_mount_table@2x.png), url(/public/image/table/currency_backgroud_head_table@2x.png);
-    background-size: auto 115px, auto 46px;
+    background-size: auto 115px,
+ auto 46px;
   }
 }
 
 @media screen and (min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1200px), screen and (min-resolution: 192dpi) and (min-width: 1200px), screen and (min-resolution: 2dppx) and (min-width: 1200px) {
   .table {
     background-image: url(/public/image/desktop/currency_background_mount_desktop@2x.png), url(/public/image/desktop/currency_backgroud_head_desktop@2x.png);
-    background-size: auto 134px, auto 60px;
+    background-size: auto 134px,
+ auto 60px;
   }
 }
 
