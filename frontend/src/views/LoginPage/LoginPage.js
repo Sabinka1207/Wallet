@@ -15,9 +15,9 @@ export default function LoginPage() {
     <div className="loginPageContainer">
       <div className="loginPageIMGContainer">
         <picture>
-          <source srcset={`${imgDesktop1x} 1x, ${imgDesktop2x} 2x, ${imgDesktop3x} 3x, ${imgDesktop4x} 4x`}
+          <source srcSet={`${imgDesktop1x} 1x, ${imgDesktop2x} 2x, ${imgDesktop3x} 3x, ${imgDesktop4x} 4x`}
             media="(min-width: 1280px)" />
-          <source srcset={`${imgTablet1x} 1x, ${imgTablet2x} 2x, ${imgTablet3x} 3x, ${imgTablet4x} 4x`}
+          <source srcSet={`${imgTablet1x} 1x, ${imgTablet2x} 2x, ${imgTablet3x} 3x, ${imgTablet4x} 4x`}
             media="(min-width: 768px)" />
           <img className="loginPageImg" src={imgTablet1x} alt="" />
         </picture>
