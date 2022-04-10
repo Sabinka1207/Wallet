@@ -11,7 +11,6 @@ import DiagramTab from '../../components/DiagramTab';
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 // import MainTab from "../../components//MainTab/MainTab";
 
-
 function DashboardPage() {
   // const dispatch = useDispatch();
   // const load = useSelector(getLoader);
