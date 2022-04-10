@@ -5,8 +5,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
 import LogoWallet from "../LogoWallet/LogoWallet";
-import Bottom from "../ButtonForm";
-import ButtomLink from "../ButtonLinkForm";
+import Button from "../ButtonForm";
+import ButtonLink from "../ButtonLinkForm";
 import TextError from "../TextError";
 
 import authOperation from "../../redux/auth/authOperation";
@@ -49,7 +49,7 @@ export default function LoginForm() {
         onSubmit={onSubmit}
         enableReinitialize
       >
-        {(formik) => {
+        {({ values, isValid }) => {
           return (
             <div className="formComponentLog">
               <div className="logoForm">
@@ -67,6 +67,7 @@ export default function LoginForm() {
                     <Field
                       type="text"
                       id="email"
+                      value={values.email}
                       name="email"
                       placeholder="E-mail"
                       className="formField"
@@ -87,14 +88,15 @@ export default function LoginForm() {
                       type="password"
                       name="password"
                       id="password"
+                      value={values.password}
                       placeholder="Пароль"
                       className="formField"
                     />
                   </div>
                   <ErrorMessage name="password" component={TextError} />
                 </div>
-                <Bottom bottomTitle={"вход"} disabled={!formik.isValid} />
-                <ButtomLink bottomTitle={"регистрация"} link={"/"} />
+                <Button bottomTitle={"вход"} disabled={!isValid} />
+                <ButtonLink bottomTitle={"регистрация"} link={"/"} />
               </Form>
             </div>
           );

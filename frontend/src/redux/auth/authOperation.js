@@ -1,7 +1,18 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api`;
+
+toast.configure();
+const toastMessage = (errorMessage) => {
+  toast.error(errorMessage, {
+    position: toast.POSITION.TOP_RIGHT,
+    autoClose: 8000,
+  });
+};
 
 const token = {
   set(token) {
@@ -25,11 +36,13 @@ const register = createAsyncThunk(
       return data;
     } catch (error) {
       if (error.response.status === 400) {
-        alert("User creation error! Please try again!");
+        toastMessage("Ошибка ввода данных! Попробуйте еще раз!");
+      } else if (error.response.status === 409) {
+        toastMessage("Почта уже используется.");
       } else if (error.response.status === 500) {
-        alert("Server error! Please try again later!");
+        toastMessage("Сервер временно не работает. Попробуйте позже!");
       } else {
-        alert("Oops, something went wrong!");
+        toastMessage("Упс... что-то пошло не так. Перезагрузите страницу.");
       }
       return rejectWithValue(error);
     }
@@ -48,7 +61,7 @@ const logIn = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (error) {
-      alert("Invalid email or password! Please enter correct data!");
+      toastMessage("Не верная почта или пароль. Введите корректные данные.");
       return rejectWithValue(error);
     }
   }
@@ -63,9 +76,9 @@ const logOut = createAsyncThunk("auth/logout", async () => {
     token.unset();
   } catch (error) {
     if (error.response.status === 500) {
-      alert("Server error! Please try again later!");
+      toastMessage("Сервер временно не работает. Попробуйте позже!");
     } else {
-      alert("Something went wrong! Please reload the page!");
+      toastMessage("Упс... что-то пошло не так. Перезагрузите страницу.");
     }
   }
 });
@@ -86,7 +99,7 @@ const fetchCurrentUser = createAsyncThunk(
       return data;
     } catch (error) {
       token.unset();
-      alert("Your session has timed out. Please login again!");
+      toastMessage("Время сессии истекло. Пожалуйста, войдите снова.");
     }
   }
 );

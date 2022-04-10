@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { Progress } from "antd";
 
-import LogoWallet from "../LogoWallet/LogoWallet"; //!!!!!!
+import authOperation from "../../redux/auth/authOperation";
+
+import LogoWallet from "../../components/LogoWallet";
 import Button from "../ButtonForm";
 import ButtonLink from "../ButtonLinkForm";
 import TextError from "../TextError";
-
-import authOperation from "../../redux/auth/authOperation";
 
 import emailImg from "../../img/icons/email.svg";
 import passwordImg from "../../img/icons/lock.svg";
@@ -20,6 +20,7 @@ import "../../css/main.min.css";
 
 export default function RegisterForm() {
   const dispatch = useDispatch();
+
   const initialValues = {
     email: "",
     password: "",
@@ -38,7 +39,7 @@ export default function RegisterForm() {
       .min(6, "Введите минимум 6 символов.")
       .max(12, "Введите максимум 12 символов.")
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}/,
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}/,
         "Пароль не соответсвует требованям безопасности."
       )
       .required("Обязательное поле. Введите Ваш пароль."),
@@ -72,19 +73,9 @@ export default function RegisterForm() {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
-        validateOnBlur={true}
         enableReinitialize
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          isValid,
-          handleSubmit,
-          dirty,
-        }) => {
+        {({ values, handleBlur, isValid }) => {
           return (
             <div className="formComponentReg">
               <div className="logoForm">
@@ -107,7 +98,10 @@ export default function RegisterForm() {
                       placeholder="E-mail"
                       className="formField"
                       onBlur={(e) => {
-                        if (e.currentTarget.value !== "") {
+                        if (
+                          e.currentTarget.value !== "" &&
+                          e.currentTarget.value.includes("@")
+                        ) {
                           values.progress += 25;
                         }
 
@@ -133,7 +127,10 @@ export default function RegisterForm() {
                       placeholder="Пароль"
                       className="formField"
                       onBlur={(e) => {
-                        if (e.currentTarget.value !== "") {
+                        if (
+                          e.currentTarget.value.length >= 6 &&
+                          e.currentTarget.value.length <= 12
+                        ) {
                           values.progress += 25;
                         }
                         handleBlur(e);
@@ -162,7 +159,7 @@ export default function RegisterForm() {
                       placeholder="Подтвердите пароль"
                       className="formField"
                       onBlur={(e) => {
-                        if (e.currentTarget.value !== "") {
+                        if (e.currentTarget.value === values.password) {
                           values.progress += 25;
                         }
                         handleBlur(e);
@@ -188,7 +185,10 @@ export default function RegisterForm() {
                       placeholder="Ваше имя"
                       className="formField"
                       onBlur={(e) => {
-                        if (e.currentTarget.value !== "") {
+                        if (
+                          e.currentTarget.value !== "" &&
+                          e.currentTarget.value.length <= 12
+                        ) {
                           values.progress += 25;
                         }
                         handleBlur(e);
@@ -204,8 +204,7 @@ export default function RegisterForm() {
                     className="progressForm"
                   />
                 </div>
-
-                <Button bottomTitle={"регистрация"} />
+                <Button bottomTitle={"регистрация"} disabled={!isValid} />
                 <ButtonLink bottomTitle={"вход"} link={"/login"} />
               </Form>
             </div>

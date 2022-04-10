@@ -9,9 +9,9 @@
   text-align: center;
   flex-direction: column;
   justify-content: space-around;
-  /*margin-left: auto;
-  margin-right: auto;*/
-  padding-top: 15px;
+  /*  margin-left: auto;
+  margin-right: auto; */
+  padding-top: 30px;
   padding-bottom: 50px;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .form {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .input {
@@ -76,17 +76,18 @@
   border-bottom: 1px solid var(--grayFive);
   outline: none;
 
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
     -webkit-text-fill-color: var(--black);
     -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
     box-shadow: 0 0 0px 1000px var(--white) inset;
-    font-family: var(--additionalFont);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.5;
   }
 }
 
@@ -117,14 +118,18 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 280px;
   background-color: var(--accentGreenColor);
   color: var(--white);
+  font-size: 10px;
+  font-weight: 400;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-  top: -5px;
-  left: 105%;
+
+  top: 100%;
+  left: 50%;
+  margin-left: -140px;
 
   position: absolute;
   z-index: 1;

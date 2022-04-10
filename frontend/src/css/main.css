@@ -566,10 +566,9 @@ button {
           flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  /*margin-left: auto;
-  margin-right: auto;*/
-  padding-top: 15px;
-  padding-bottom: 50px;
+  /*  margin-left: auto;
+  margin-right: auto; */
+  padding-top: 30px;
 }
 
 @media screen and (min-width: 768px) {
@@ -620,7 +619,7 @@ button {
 }
 
 .form {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .input {
@@ -638,17 +637,17 @@ button {
   border: none;
   border-bottom: 1px solid var(--grayFive);
   outline: none;
+  font-family: var(--additionalFont);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .formField:-webkit-autofill, .formField:-webkit-autofill:hover, .formField:-webkit-autofill:focus {
   -webkit-text-fill-color: var(--black);
   -webkit-box-shadow: 0 0 0px 1000px var(--white) inset;
   box-shadow: 0 0 0px 1000px var(--white) inset;
-  font-family: var(--additionalFont);
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5;
 }
 
 @media screen and (min-width: 768px) {
@@ -704,14 +703,17 @@ button {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 280px;
   background-color: var(--accentGreenColor);
   color: var(--white);
+  font-size: 10px;
+  font-weight: 400;
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-  top: -5px;
-  left: 105%;
+  top: 100%;
+  left: 50%;
+  margin-left: -140px;
   position: absolute;
   z-index: 1;
 }
@@ -739,7 +741,7 @@ button {
   text-transform: uppercase;
   width: 280px;
   height: 40px;
-  margin-top: 40px;
+  margin-top: 30px;
   font-family: var(--additionalFont);
   font-style: normal;
   font-weight: 400;
@@ -761,6 +763,20 @@ button {
   .btnForm {
     width: 300px;
   }
+}
+
+button:disabled,
+button[disabled] {
+  background-color: #c5baff;
+}
+
+button:disabled:hover, button:disabled:focus,
+button[disabled]:hover,
+button[disabled]:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .btnLinkForm {
@@ -878,7 +894,8 @@ button {
   background-image: url(/public/image/mobile/currency_background_mount_mobile@1x.png), url(/public/image/mobile/currency_backgroud_head_mobile@1x.png);
   background-size: auto 96px, auto 50px;
   background-repeat: no-repeat;
-  background-position: bottom, top;
+  background-position: bottom,
+ top;
   border-radius: 30px;
 }
 
