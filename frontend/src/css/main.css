@@ -569,6 +569,7 @@ button {
   /*  margin-left: auto;
   margin-right: auto; */
   padding-top: 30px;
+  padding-bottom: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -894,8 +895,7 @@ button[disabled]:focus {
   background-image: url(/public/image/mobile/currency_background_mount_mobile@1x.png), url(/public/image/mobile/currency_backgroud_head_mobile@1x.png);
   background-size: auto 96px, auto 50px;
   background-repeat: no-repeat;
-  background-position: bottom,
- top;
+  background-position: bottom, top;
   border-radius: 30px;
 }
 
@@ -1162,13 +1162,8 @@ button[disabled]:focus {
   }
 }
 
-.loginPageIMGContainer,
-.loginPageEllipseViolet,
-.loginPageEllipseOrange {
-  display: none;
-}
-
 .loginPageIMGContainer {
+  display: none;
   width: 100%;
   min-width: 280px;
 }
@@ -1198,7 +1193,7 @@ button[disabled]:focus {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
   }
   .loginPageText {
     padding-left: 40px;
@@ -1213,10 +1208,33 @@ button[disabled]:focus {
     height: 470px;
     width: 540px;
   }
+  .RegisterPageFormContainer {
+    position: relative;
+    height: 620px;
+    width: 540px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 768px), screen and (min-resolution: 192dpi) and (min-width: 768px), screen and (min-resolution: 2dppx) and (min-width: 768px) {
+  .loginPageContainer {
+    background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
+    background-repeat: no-repeat;
+    background-color: #E7EAF2;
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+  .loginPageContainer {
+    min-height: 1024px;
+  }
   .loginPageFormContainer {
+    margin: auto;
+  }
+  .RegisterPageFormContainer {
     margin: auto;
   }
 }
@@ -1243,19 +1261,37 @@ button[disabled]:focus {
     padding-top: 20vh;
     padding-left: 6vw;
     margin-bottom: 0px;
-    /*margin: auto;*/
   }
   .loginPageFormContainer {
     position: relative;
     height: 100vh;
     width: 143vw;
-    /*padding: 130px 90px 120px;*/
+    background: rgba(255, 255, 255, 0.4);
+    -webkit-backdrop-filter: blur(50px);
+            backdrop-filter: blur(50px);
+  }
+  .RegisterPageFormContainer {
+    position: relative;
+    height: 100vh;
+    width: 143vw;
     background: rgba(255, 255, 255, 0.4);
     -webkit-backdrop-filter: blur(50px);
             backdrop-filter: blur(50px);
   }
   .loginPageText {
     padding-left: 120px;
+  }
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1280px), screen and (min-resolution: 192dpi) and (min-width: 1280px), screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+  .loginPageContainer {
+    background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png), url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
+    background-size: 510px auto, 365px auto;
+    background-position: bottom, top;
+    background-position-x: 0%, 100%;
+    background-position-y: 100%, 0%;
+    background-repeat: no-repeat;
+    background-color: #E7EAF2;
   }
 }
 
@@ -1369,7 +1405,6 @@ button[disabled]:focus {
   font-weight: bold;
   padding: 7px;
   background: white;
-  border: none;
   text-align: left;
   font-size: 15px;
 }
@@ -1393,15 +1428,9 @@ button[disabled]:focus {
 }
 
 .chart__table td {
-  border: #eae3e3;
   padding: 14px;
-  border-top: 3px solid #fff;
   border-bottom: 3px solid #fff;
   font-size: 15px;
-}
-
-.chart__table tr {
-  border: #eae3e3;
 }
 
 .table__head {

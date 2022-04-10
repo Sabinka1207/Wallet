@@ -1,10 +1,5 @@
-.loginPageIMGContainer,
-.loginPageEllipseViolet,
-.loginPageEllipseOrange {
-    display: none;
-}
-
 .loginPageIMGContainer {
+    display: none;
     width: 100%;
     min-width: 280px;
 }
@@ -33,7 +28,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 50px;
+        margin-bottom: 45px;
     }
     .loginPageText {
         padding-left: 40px;
@@ -48,9 +43,43 @@
         height: 470px;
         width: 540px;
     }
+
+    .RegisterPageFormContainer {
+        position: relative;
+        height: 620px;
+        width: 540px;
+    }
 }
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+screen and (min-resolution: 192dpi) and (min-width: 768px),
+screen and (min-resolution: 2dppx) and (min-width: 768px) {
+    
+    .loginPageContainer {
+        background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png),
+            url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
+        background-size: 510px auto,
+            365px auto;
+        background-position: bottom,
+            top;
+        background-position-x: 0%,
+            100%;
+        background-position-y: 100%,
+            0%;
+        background-repeat: no-repeat;
+        background-color: #E7EAF2;
+    }
+}
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
+    .loginPageContainer {
+        min-height: 1024px;
+    }
+    
     .loginPageFormContainer {
+        margin: auto;
+    }
+    .RegisterPageFormContainer {
         margin: auto;
     }
 }
@@ -82,14 +111,20 @@
         padding-top: 20vh;
         padding-left: 6vw;
         margin-bottom: 0px;
-        /*margin: auto;*/
     }
 
     .loginPageFormContainer {
         position: relative;
         height: 100vh;
+        width: 143vw;       
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(50px);
+    }
+
+    .RegisterPageFormContainer {
+        position: relative;
+        height: 100vh;
         width: 143vw;
-        /*padding: 130px 90px 120px;*/        
         background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(50px);
     }
@@ -98,4 +133,23 @@
         padding-left: 120px;
     }
 
+}
+
+@media screen and (min-device-pixel-ratio: 2) and (min-width: 1280px),
+screen and (min-resolution: 192dpi) and (min-width: 1280px),
+screen and (min-resolution: 2dppx) and (min-width: 1280px) {
+    .loginPageContainer {
+        background-image: url(/public/image/table/BackGroudEllipseBlueTable@2x.png),
+            url(/public/image/table/BackGroudEllipsePinkTable@2x.png);
+        background-size: 510px auto,
+            365px auto;
+        background-position: bottom,
+            top;
+        background-position-x: 0%,
+            100%;
+        background-position-y: 100%,
+            0%;
+        background-repeat: no-repeat;
+        background-color: #E7EAF2;
+    }
 }
