@@ -464,7 +464,7 @@ button {
 
 @media screen and (max-width: 767px) {
   .ModalAddTransaction {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     left: 0;
     top: 0;
@@ -479,8 +479,8 @@ button {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .Modal__amount {
-    margin-bottom: 40px;
+  .Modal__close {
+    display: none;
   }
 }
 
@@ -523,7 +523,6 @@ button {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  border: 1px solid black;
 }
 
 .Modal__form > *:not(:last-child) {
@@ -531,9 +530,9 @@ button {
 }
 
 .Modal__input {
+  appearance: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
   background-color: transparent;
   border: none;
   padding: 0 1em 0 0;
@@ -551,9 +550,9 @@ button {
 }
 
 .form-control {
+  appearance: none;
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
   background-color: transparent;
   border: none;
   padding: 0 1em 0 0;
@@ -630,42 +629,31 @@ button {
   text-align: center;
 }
 
-.Modal__form {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
-}
-
 .Modal__date {
   position: relative;
 }
 
 .Modal__calendar {
   position: absolute;
-  bottom: 8px;
+  top: 2px;
   right: 10px;
   width: 24px;
   height: 24px;
   border: none;
 }
 
-.Modal__datetime {
-  width: 100%;
-}
-
 .Modal__container {
   width: 100%;
 }
 
-.Modal__amount {
-  width: 100%;
-  margin-bottom: 40px;
+.formikError {
+  font-size: 12px;
+  color: red;
+  font-weight: 700;
+}
+
+.Modal__comment {
+  resize: none;
 }
 
 .Modal__select {
@@ -675,6 +663,58 @@ button {
 
 .Modal__arrow {
   position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .Modal__date {
+    margin-top: 40px;
+  }
+  .Modal__comment {
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .Modal__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .Modal__comment {
+    height: 32px;
+  }
+  .Modal__amount {
+    width: 190px;
+  }
+  .Modal__amount::-webkit-input-placeholder {
+    font-weight: 700;
+    text-align: center;
+  }
+  .Modal__amount:-ms-input-placeholder {
+    font-weight: 700;
+    text-align: center;
+  }
+  .Modal__amount::-ms-input-placeholder {
+    font-weight: 700;
+    text-align: center;
+  }
+  .Modal__amount::placeholder {
+    font-weight: 700;
+    text-align: center;
+  }
+  .Modal__date {
+    width: 180px;
+  }
 }
 
 .formComponentLog {
