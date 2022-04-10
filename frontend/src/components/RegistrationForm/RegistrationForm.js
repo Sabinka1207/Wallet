@@ -15,6 +15,7 @@ import TextError from "../TextError";
 import emailImg from "../../img/icons/email.svg";
 import passwordImg from "../../img/icons/lock.svg";
 import nameImg from "../../img/icons/name.svg";
+import progressFunc from "../../components/ProgressiveBar/progressFunc";
 
 import "../../css/main.min.css";
 
@@ -60,9 +61,7 @@ export default function RegisterForm() {
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
     const { email, password, name } = values;
-
     dispatch(authOperation.register({ name, email, password }));
-
     setSubmitting(false);
     resetForm();
   };
@@ -98,13 +97,7 @@ export default function RegisterForm() {
                       placeholder="E-mail"
                       className="formField"
                       onBlur={(e) => {
-                        if (
-                          e.currentTarget.value !== "" &&
-                          e.currentTarget.value.includes("@")
-                        ) {
-                          values.progress += 25;
-                        }
-
+                        progressFunc(values);
                         handleBlur(e);
                       }}
                     />
@@ -127,12 +120,7 @@ export default function RegisterForm() {
                       placeholder="Пароль"
                       className="formField"
                       onBlur={(e) => {
-                        if (
-                          e.currentTarget.value.length >= 6 &&
-                          e.currentTarget.value.length <= 12
-                        ) {
-                          values.progress += 25;
-                        }
+                        progressFunc(values);
                         handleBlur(e);
                       }}
                     />
@@ -159,16 +147,20 @@ export default function RegisterForm() {
                       placeholder="Подтвердите пароль"
                       className="formField"
                       onBlur={(e) => {
-                        if (e.currentTarget.value === values.password) {
-                          values.progress += 25;
-                        }
+                        progressFunc(values);
                         handleBlur(e);
                       }}
                     />
                   </div>
                   <ErrorMessage name="confirmPassword" component={TextError} />
                 </div>
-
+                <Progress
+                  strokeColor={{ from: "#24CCA7", to: "#24CCA7" }}
+                  percent={values.progress}
+                  showInfo={false}
+                  status="active"
+                  className="progressForm"
+                />
                 <div className="inputError">
                   <div className="input">
                     <img
@@ -185,24 +177,12 @@ export default function RegisterForm() {
                       placeholder="Ваше имя"
                       className="formField"
                       onBlur={(e) => {
-                        if (
-                          e.currentTarget.value !== "" &&
-                          e.currentTarget.value.length <= 12
-                        ) {
-                          values.progress += 25;
-                        }
+                        progressFunc(values);
                         handleBlur(e);
                       }}
                     />
                   </div>
                   <ErrorMessage name="name" component={TextError} />
-                  <Progress
-                    strokeColor={{ from: "#24CCA7", to: "#24CCA7" }}
-                    percent={values.progress}
-                    showInfo={false}
-                    status="active"
-                    className="progressForm"
-                  />
                 </div>
                 <Button bottomTitle={"регистрация"} disabled={!isValid} />
                 <ButtonLink bottomTitle={"вход"} link={"/login"} />

@@ -34,9 +34,7 @@ export default function LoginForm() {
 
   const onSubmit = (values, { setSubmitting, resetForm }) => {
     const { email, password } = values;
-
     dispatch(authOperation.logIn({ email, password }));
-
     setSubmitting(false);
     resetForm();
   };
@@ -96,7 +94,7 @@ export default function LoginForm() {
                   <ErrorMessage name="password" component={TextError} />
                 </div>
                 <Button bottomTitle={"вход"} disabled={!isValid} />
-                <ButtonLink bottomTitle={"регистрация"} link={"/"} />
+                <ButtonLink bottomTitle={"регистрация"} link={"/register"} />
               </Form>
             </div>
           );
