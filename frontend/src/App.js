@@ -41,7 +41,6 @@ function App() {
               </PrivateRoute>
             }
           ></Route>
-          <Route path="/dashboard" element={<DashboardPage />}></Route>
         </Routes>
       </Suspense>
     </div>
