@@ -14,7 +14,7 @@ import storage from "redux-persist/lib/storage";
 
 /*импортируем reducers ниже*/
 import authReducer from "./auth/authSlice";
-import statisticsReducer from "./statistics/statisticsSlice"
+import statisticsReducer from "./statistics/statisticsSlice";
 
 const middleware = [
   ...getDefaultMiddleware({

@@ -7,10 +7,11 @@ import Header from "../../components/Header/Header";
 import Navigation from "../../components/Navigation/Navigation";
 import Balance from "../../components/Balance";
 import Currency from "../../components/Currency";
-import DiagramTab from '../../components/DiagramTab';
+import DiagramTab from "../../components/DiagramTab";
+import { Outlet } from "react-router-dom";
+
 // import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 // import MainTab from "../../components//MainTab/MainTab";
-
 
 function DashboardPage() {
   // const dispatch = useDispatch();
@@ -52,14 +53,11 @@ function DashboardPage() {
               <Currency></Currency>
             </aside>
             <section className="dashboardPageMain">
-            <DiagramTab />
-              {/* <MainTab></MainTab> */}
-              {/* <ButtonAddTransaction /> */}
+              <Outlet />;{/* <ButtonAddTransaction /> */}
             </section>
           </div>
         </div>
       </main>
-
     </>
   );
 }
