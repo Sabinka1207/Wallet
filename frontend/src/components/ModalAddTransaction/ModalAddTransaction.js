@@ -27,47 +27,49 @@ function ModalAddTransaction({ isOpen }) {
     <div className="Overlay">
       <div className="ModalAddTransaction">
         <CloseModal className="Modal__close" onClick={closeModal} />
-        <h2 className="Modal__heading">Добавить транзакцию</h2>
-        <div class="Switcher">
-          <span
-            className="Switcher__option Switcher__income"
-            style={{
-              color: income ? 'var(--accentGreenColor)' : 'var(--grayFive)',
-            }}
-          >
-            Доход
-          </span>
-          <div className="Switcher__control">
-            <input
-              onClick={() => setIncome(!income)}
-              className="Switcher__toggle"
-              type="checkbox"
-              name="transaction-type"
-              id="switcher-toggle"
-              defaultChecked
-              aria-label="Выбрать расход или доход"
-            />
-            <label
-              aria-hidden="true"
-              class="Switcher__track"
-              for="switcher-toggle"
-            ></label>
-            <div aria-hidden="true" class="Switcher__marker"></div>
+        <div className="Modal__body">
+          <h2 className="Modal__heading">Добавить транзакцию</h2>
+          <div class="Switcher">
+            <span
+              className="Switcher__option Switcher__income"
+              style={{
+                color: income ? 'var(--accentGreenColor)' : 'var(--grayFive)',
+              }}
+            >
+              Доход
+            </span>
+            <div className="Switcher__control">
+              <input
+                onClick={() => setIncome(!income)}
+                className="Switcher__toggle"
+                type="checkbox"
+                name="transaction-type"
+                id="switcher-toggle"
+                defaultChecked
+                aria-label="Выбрать расход или доход"
+              />
+              <label
+                aria-hidden="true"
+                class="Switcher__track"
+                for="switcher-toggle"
+              ></label>
+              <div aria-hidden="true" class="Switcher__marker"></div>
+            </div>
+            <span
+              className="Switcher__option Switcher__spending"
+              style={{
+                color: income ? 'var(--grayFive)' : 'var(--accentRoseColor)',
+              }}
+            >
+              Расход
+            </span>
           </div>
-          <span
-            className="Switcher__option Switcher__spending"
-            style={{
-              color: income ? 'var(--grayFive)' : 'var(--accentRoseColor)',
-            }}
-          >
-            Расход
-          </span>
+          <ModalForm
+            closeModal={closeModal}
+            income={income}
+            categories={categories}
+          />
         </div>
-        <ModalForm
-          closeModal={closeModal}
-          income={income}
-          categories={categories}
-        />
       </div>
     </div>,
     modalRoot,

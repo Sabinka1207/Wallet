@@ -1,16 +1,19 @@
 import { ReactComponent as Calendar } from '../../img/icons/calendar.svg';
 import { ReactComponent as SelectArrow } from '../../img/icons/select-arrow.svg';
-import { Formik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import Datetime from 'react-datetime';
-import { useState } from 'react';
 import 'react-datetime/css/react-datetime.css';
 import moment from 'moment';
-import { addTransaction } from './api/transaction';
+import { addTransaction } from '../../redux/transactions/transactions-operations';
+import { useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ModalForm({ closeModal, income, categories }) {
-  const [date, setDate] = useState('');
-  const [category, setCategory] = useState('');
-  const [comment, setComment] = useState('');
+  const dispatch = useDispatch();
+
+  const notify = () => toast('Wow so easy !');
 
   const incomeCategories = categories.filter(
     category => category.type === 'income',
@@ -20,13 +23,8 @@ function ModalForm({ closeModal, income, categories }) {
   );
 
   const yesterday = moment().subtract(1, 'day');
-  function valid(current) {
+  const valid = current => {
     return current.isAfter(yesterday);
-  }
-
-  const setSelect = e => {
-    console.log(e.target.value);
-    setCategory(e.target.value);
   };
 
   let today = new Date();
@@ -36,65 +34,51 @@ function ModalForm({ closeModal, income, categories }) {
 
   today = dd + '.' + mm + '.' + yyyy;
 
-  const handleComment = e => {
-    setComment(e.target.value);
+  const initialValues = {
+    income: income,
+    category: '',
+    amount: '',
+    date: today,
+    comment: '',
   };
 
-  const onSubmit = async e => {
-    e.preventDefault();
-    const transactionObject = {
-      category: category,
-      income: income,
-      date: date,
-      comment: comment,
-    };
-    try {
-      await addTransaction(transactionObject);
-    } catch (error) {
-      console.log(error.toString());
-    }
+  const validate = Yup.object().shape({
+    income: Yup.boolean().default(false),
+    category: Yup.string().required('Укажите категорию'),
+    amount: Yup.string()
+      .matches(/^-?\d*\.?\d*$/, 'Введите только цифры')
+      .required('Укажите сумму'),
+    date: Yup.date().default(() => new Date()),
+    comment: Yup.string(),
+  });
+
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    console.log(values);
+    const { income, category, amount, date, comment } = values;
+    dispatch(addTransaction({ income, category, amount, date, comment }));
+
+    setSubmitting(false);
+    resetForm();
+
+    console.log(values);
   };
 
   return (
     <Formik
-      initialValues={{ date: '', category: '', amount: '' }}
-      validate={values => {
-        const errors = {};
-        if (!values.email) {
-          errors.email = 'Required';
-        } else if (
-          !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-        ) {
-          errors.email = 'Invalid email address';
-        }
-        return errors;
-      }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
-      }}
+      initialValues={initialValues}
+      validationSchema={validate}
+      onSubmit={onSubmit}
+      validateOnBlur={true}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleBlur,
-        handleSubmit,
-        isSubmitting,
-        /* and other goodies */
-      }) => (
-        <form className="Modal__form" onSubmit={onSubmit}>
+      {formik => (
+        <Form className="Modal__form">
           <div className="Modal__select">
             {income ? (
               <>
-                <SelectArrow />
-                <select
-                  className="Select__income"
+                <Field
+                  as="select"
+                  className="Select__income Modal__input"
                   name="category"
-                  onChange={setSelect}
                 >
                   <option defaultValue="" disabled selected>
                     Выберите категорию
@@ -105,15 +89,15 @@ function ModalForm({ closeModal, income, categories }) {
                         {nameDropdown}
                       </option>
                     ))}
-                </select>
+                </Field>
+                <SelectArrow className="Modal__arrow" />
               </>
             ) : (
               <>
-                <SelectArrow />
-                <select
-                  className="Select__spending"
+                <Field
+                  as="select"
+                  className="Select__spending Modal__input"
                   name="category"
-                  onChange={setSelect}
                 >
                   <option defaultValue="" disabled selected>
                     Выберите категорию
@@ -124,35 +108,58 @@ function ModalForm({ closeModal, income, categories }) {
                         {nameDropdown}
                       </option>
                     ))}
-                </select>
+                </Field>
+                <SelectArrow className="Modal__arrow" />
               </>
             )}
-          </div>
-          <div>
-            <input
-              type="text"
-              name="amount"
-              placeholder="0.00"
-              className="Modal__input"
+            <ErrorMessage
+              component="div"
+              name="category"
+              className="formikError"
             />
+          </div>
+
+          <div className="Modal__container">
+            <span>
+              <Field
+                type="text"
+                name="amount"
+                placeholder="0.00"
+                className="Modal__input Modal__amount"
+              />
+              <ErrorMessage
+                component="div"
+                name="amount"
+                className="formikError"
+              />
+            </span>
+
             <span className="Modal__date">
               <Datetime
-                className="Modal__calendar"
+                className="Modal__input Modal__datetime"
                 closeOnSelect="true"
+                // timeFormat="false"
+                dateFormat="DD.MM.YYYY"
                 isValidDate={valid}
-                onChange={setDate(today)}
                 value={today}
               />
-              <Calendar />
+              <Calendar className="Modal__calendar" />
             </span>
           </div>
-          <input
+
+          <Field
+            as="textarea"
             type="text"
             placeholder="Комментарий"
-            className="Modal__input"
+            className="Modal__input Modal__comment"
             name="comment"
-            onChange={handleComment}
           />
+          <ErrorMessage
+            component="div"
+            name="comment"
+            className="formikError"
+          />
+
           <div className="Modal__controllers">
             <button type="submit" className="Modal__add">
               Добавить
@@ -161,10 +168,15 @@ function ModalForm({ closeModal, income, categories }) {
               Отмена
             </button>
           </div>
-        </form>
+        </Form>
       )}
     </Formik>
   );
 }
+
+// const mapDispatchToProps = dispatch => ({
+//   onSubmit: ({ income, category, amount, date, comment }) =>
+//     dispatch(addTransaction({ income, category, amount, date, comment })),
+// });
 
 export default ModalForm;

@@ -1,16 +1,16 @@
-import { Suspense, lazy } from "react";
-import { Routes, Route } from "react-router-dom";
-import PublicRoute from "./PublicRoute";
-import PrivateRoute from "./PrivatRoute";
-import Loader from "./components/Loader/Loader";
+import { Suspense, lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivatRoute';
+import Loader from './components/Loader/Loader';
 
 // import Header from "./components/Header/Header";
 // import Navigation from "./components/Navigation/Navigation";
 // import DashboardPage from "./views/DashboardPage";
 
-const RegisterPage = lazy(() => import("./views/RegisterPage"));
-const LoginPage = lazy(() => import("./views/LoginPage"));
-const DashboardPage = lazy(() => import("./views/DashboardPage"));
+const RegisterPage = lazy(() => import('./views/RegisterPage'));
+const LoginPage = lazy(() => import('./views/LoginPage'));
+const DashboardPage = lazy(() => import('./views/DashboardPage'));
 
 function App() {
   return (

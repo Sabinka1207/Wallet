@@ -47,13 +47,23 @@
   background-color: transparent;
 }
 
+.Modal__body{
+  width: 100%;
+}
+
+.Modal__body > * {
+
+  &:not(:last-child){
+margin-bottom: 40px;}
+}
+
 .Modal__heading {
   font-family: var(--mainFont);
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
-  line-height: 1, 5;
   text-align: center;
+  // margin-bottom: 40px;
 }
 
 .Modal__form {
@@ -66,6 +76,7 @@
 .Switcher {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .Switcher__control {
@@ -142,19 +153,27 @@
   color: var(--accentRoseColor);
 }
 
-// SELECT
-
 
 // MEDIA RULES
 
 @media screen and (max-width: 767px) {
   .ModalAddTransaction {
-    height: 100vh;
+    height: 100%;
     width: 100vw;
     left: 0;
     top: 0;
         padding: 20px 20px 50px 20px;
   }
+
+  .Modal__container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Modal__close {
+   display: none;
+  }
+ 
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {

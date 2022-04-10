@@ -1,14 +1,13 @@
 // import { useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 
-import "../../css/main.min.css";
+import '../../css/main.min.css';
 
-import Header from "../../components/Header/Header";
-import Navigation from "../../components/Navigation/Navigation";
-import Balance from "../../components/Balance";
-import Currency from "../../components/Currency";
+import Header from '../../components/Header/Header';
+import Navigation from '../../components/Navigation/Navigation';
+import Balance from '../../components/Balance';
+import Currency from '../../components/Currency';
 import DiagramTab from '../../components/DiagramTab';
-// import ButtonAddTransaction from '../../components/ButtonAddTransactions/ButtonAddTransactions';
 // import MainTab from "../../components//MainTab/MainTab";
 
 function DashboardPage() {
@@ -51,14 +50,12 @@ function DashboardPage() {
               <Currency></Currency>
             </aside>
             <section className="dashboardPageMain">
-            <DiagramTab />
+              <DiagramTab />
               {/* <MainTab></MainTab> */}
-              {/* <ButtonAddTransaction /> */}
             </section>
           </div>
         </div>
       </main>
-
     </>
   );
 }
