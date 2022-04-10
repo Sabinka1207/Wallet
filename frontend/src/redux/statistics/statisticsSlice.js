@@ -3,16 +3,25 @@ import getStatistics from "./statisticsOperation";
   
   const statisticsSlice = createSlice({
       name: 'statistics',
-      initialState: { data: [], isLoading: false, error: null},
+      initialState: { 
+          data: [], 
+          isLoading: false, 
+          error: null
+    },
       extraReducers: {
         [getStatistics.fulfilled]: (state, { payload }) => {
-            return { ...state, data: payload };
+            console.log(payload);
+           state.data = payload
+           state.isLoading = false;
+           state.error = false
         },
         [getStatistics.pending]: state => {
-            return {...state, isLoading: true}
+          state.isLoading = true;
         },
         [getStatistics.rejected]: () => state => {
-            return {...state, error: null}
+          state.data = [];
+          state.loading = false;
+          state.hasError = true;
         }
     }    
   })
