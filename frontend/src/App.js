@@ -1,6 +1,12 @@
 import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
+import PublicRoute from "./PublicRoute";
+import PrivateRoute from "./PrivatRoute";
 import Loader from "./components/Loader/Loader";
+
+// import Header from "./components/Header/Header";
+// import Navigation from "./components/Navigation/Navigation";
+// import DashboardPage from "./views/DashboardPage";
 
 const RegisterPage = lazy(() => import("./views/RegisterPage"));
 const LoginPage = lazy(() => import("./views/LoginPage"));
@@ -11,9 +17,30 @@ function App() {
     <div>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route path="/" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route
+            path="/register"
+            element={
+              <PublicRoute restricted redirectTo="/login">
+                <RegisterPage />
+              </PublicRoute>
+            }
+          ></Route>
+          <Route
+            path="/login"
+            element={
+              <PublicRoute restricted redirectTo="/">
+                <LoginPage />
+              </PublicRoute>
+            }
+          ></Route>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <DashboardPage />
+              </PrivateRoute>
+            }
+          ></Route>
         </Routes>
       </Suspense>
     </div>

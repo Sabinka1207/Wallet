@@ -12,6 +12,7 @@
         "../sass/components/_dashboardPage.scss",
         "../sass/components/_buttonAddTransactions.scss",
         "../sass/components/_modalAddTransaction.scss",
+        "../sass/components/_modalForm.scss",
         "../sass/components/_forms.scss",
         "../sass/components/_buttonForm.scss",
         "../sass/components/_buttonLinkForm.scss",

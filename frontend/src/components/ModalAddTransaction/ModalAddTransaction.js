@@ -1,18 +1,15 @@
 import { createPortal } from 'react-dom';
 import { useState, useEffect } from 'react';
-import { ReactComponent as Calendar } from '../../img/icons/calendar.svg';
 import { ReactComponent as CloseModal } from '../../img/icons/close.svg';
-import { ReactComponent as SelectArrow } from '../../img/icons/select-arrow.svg';
 import '../../css/main.min.css';
 import axios from 'axios';
+import ModalForm from './ModalForm';
 
 const modalRoot = document.getElementById('modal-root');
 
-function ModalAddTransaction({ closeModal }) {
+function ModalAddTransaction({ isOpen }) {
   const [income, setIncome] = useState(false);
   const [categories, setCategories] = useState([]);
-  console.log(income);
-  console.log(categories);
 
   useEffect(() => {
     axios
@@ -21,16 +18,25 @@ function ModalAddTransaction({ closeModal }) {
       .catch(error => console.log(error.message));
   }, []);
 
+  const closeModal = () => {
+    isOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
   return createPortal(
     <div className="Overlay">
       <div className="ModalAddTransaction">
-        <CloseModal
-          className="Modal__close"
-          onClick={() => closeModal(false)}
-        />
+        <CloseModal className="Modal__close" onClick={closeModal} />
         <h2 className="Modal__heading">Добавить транзакцию</h2>
         <div class="Switcher">
-          <span className="Switcher__option Switcher__income">Доход</span>
+          <span
+            className="Switcher__option Switcher__income"
+            style={{
+              color: income ? 'var(--accentGreenColor)' : 'var(--grayFive)',
+            }}
+          >
+            Доход
+          </span>
           <div className="Switcher__control">
             <input
               onClick={() => setIncome(!income)}
@@ -48,53 +54,20 @@ function ModalAddTransaction({ closeModal }) {
             ></label>
             <div aria-hidden="true" class="Switcher__marker"></div>
           </div>
-          <span className="Switcher__option Switcher__spending">Расход</span>
+          <span
+            className="Switcher__option Switcher__spending"
+            style={{
+              color: income ? 'var(--grayFive)' : 'var(--accentRoseColor)',
+            }}
+          >
+            Расход
+          </span>
         </div>
-
-        <form className="Modal__form">
-          <div className="Modal__select">
-            {income ? (
-              <select className="Select__income">
-                <option defaultValue="" disabled selected>
-                  Выберите категорию <SelectArrow />
-                </option>
-                <option value="">Регулярный</option>
-                <option value="">Нерегулярный</option>
-              </select>
-            ) : (
-              <select className="Select__spending">
-                <option defaultValue="" disabled selected>
-                  Выберите категорию <SelectArrow />
-                </option>
-                <option value="">Еда</option>
-                <option value="">Основное</option>
-                <option value="">Досуг</option>
-                <option value="">Дети</option>
-                <option value="">Развитие</option>
-                <option value="">Машина</option>
-              </select>
-            )}
-          </div>
-          <div>
-            <input type="text" placeholder="0.00" className="Modal__input" />
-            <span>
-              <Calendar />
-            </span>
-          </div>
-          <input
-            type="text"
-            placeholder="Комментарий"
-            className="Modal__input"
-          />
-          <div className="Modal__controllers">
-            <button type="submit" className="Modal__add">
-              Добавить
-            </button>
-            <button onClick={() => closeModal(false)} className="Modal__cancel">
-              Отмена
-            </button>
-          </div>
-        </form>
+        <ModalForm
+          closeModal={closeModal}
+          income={income}
+          categories={categories}
+        />
       </div>
     </div>,
     modalRoot,
