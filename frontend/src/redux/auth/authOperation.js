@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-/* axios.defaults.baseURL = `herokuapp.com`; */
+/* axios.defaults.baseURL = `https://pure-atoll-67904.herokuapp.com/api/`; */
 
 const token = {
   set(token) {
