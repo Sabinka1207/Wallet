@@ -8,14 +8,6 @@ import imgDesktop1x from "../../img/desktop/signup-desktop@1x.png";
 import imgDesktop2x from "../../img/desktop/signup-desktop@2x.png";
 import imgDesktop3x from "../../img/desktop/signup-desktop@3x.png";
 import imgDesktop4x from "../../img/desktop/signup-desktop@4x.png";
-import ellipseViolet1 from "../../img/Ellipse-1@1x.png";
-import ellipseViolet2 from "../../img/Ellipse-1@2x.png";
-import ellipseViolet3 from "../../img/Ellipse-1@3x.png";
-import ellipseViolet4 from "../../img/Ellipse-1@4x.png"
-import ellipseOrange1 from "../../img/Ellipse-2@1x.png";
-import ellipseOrange2 from "../../img/Ellipse-2@2x.png";
-import ellipseOrange3 from "../../img/Ellipse-2@3x.png";
-import ellipseOrange4 from "../../img/Ellipse-2@4x.png";
 import "../../css/main.min.css";
 
 export default function LoginPage() {
@@ -32,19 +24,9 @@ export default function LoginPage() {
         
         <p className="loginPageText">Finance App</p>
       </div>
-      <div className="loginFormPageContainer">
+      <div className="loginPageFormContainer">
         <RegistrationForm />
       </div>
-        <picture>
-          <source srcset={`${ellipseViolet1} 1x, ${ellipseViolet2} 2x, ${ellipseViolet3} 3x, ${ellipseViolet4} 4x`}
-            />
-          <img className="loginPageEllipseViolet" src={ellipseViolet1} alt="" />
-      </picture>
-      <picture>
-          <source srcset={`${ellipseOrange1} 1x, ${ellipseOrange2} 2x, ${ellipseOrange3} 3x, ${ellipseOrange4} 4x`}
-            />
-          <img className="loginPageEllipseOrange" src={ellipseOrange1} alt="" />
-      </picture>
     </div>
   );
 }
