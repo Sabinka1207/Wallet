@@ -25,6 +25,8 @@
   align-content: space-around;
 }
 .Modal__controllers > button {
+  font-family: var(--additionalFont);
+  font-weight: 100;
   border-radius: 20px;
   width: 300px;
   font-size: 18px;
