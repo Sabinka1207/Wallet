@@ -1,12 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
 import LogoWallet from "../LogoWallet/LogoWallet";
-import Bottom from "../ButtonForm";
-import ButtomLink from "../ButtonLinkForm";
+import Button from "../ButtonForm";
+import ButtonLink from "../ButtonLinkForm";
 import TextError from "../TextError";
+
+import authOperation from "../../redux/auth/authOperation";
 
 import email from "../../img/icons/email.svg";
 import password from "../../img/icons/lock.svg";
@@ -14,6 +17,8 @@ import password from "../../img/icons/lock.svg";
 import "../../css/main.min.css";
 
 export default function LoginForm() {
+  const dispatch = useDispatch();
+
   const initialValues = {
     email: "",
     password: "",
@@ -27,10 +32,11 @@ export default function LoginForm() {
     password: yup.string().required("Обязательное поле. Введите Ваш пароль."),
   });
 
-  const onSubmit = (values, submitProps) => {
-    console.log(values);
-    submitProps.setSubmittingvalues(false);
-    submitProps.resetForm();
+  const onSubmit = (values, { setSubmitting, resetForm }) => {
+    const { email, password } = values;
+    dispatch(authOperation.logIn({ email, password }));
+    setSubmitting(false);
+    resetForm();
   };
 
   return (
@@ -41,7 +47,7 @@ export default function LoginForm() {
         onSubmit={onSubmit}
         enableReinitialize
       >
-        {(formik) => {
+        {({ values, isValid }) => {
           return (
             <div className="formComponentLog">
               <div className="logoForm">
@@ -59,6 +65,7 @@ export default function LoginForm() {
                     <Field
                       type="text"
                       id="email"
+                      value={values.email}
                       name="email"
                       placeholder="E-mail"
                       className="formField"
@@ -79,14 +86,15 @@ export default function LoginForm() {
                       type="password"
                       name="password"
                       id="password"
+                      value={values.password}
                       placeholder="Пароль"
                       className="formField"
                     />
                   </div>
                   <ErrorMessage name="password" component={TextError} />
                 </div>
-                <Bottom bottomTitle={"вход"} disabled={!formik.isValid} />
-                <ButtomLink bottomTitle={"регистрация"} link={"/"} />
+                <Button bottomTitle={"вход"} disabled={!isValid} />
+                <ButtonLink bottomTitle={"регистрация"} link={"/register"} />
               </Form>
             </div>
           );

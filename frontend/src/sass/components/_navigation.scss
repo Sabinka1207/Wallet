@@ -1,3 +1,8 @@
+.navigation{
+    margin-bottom: 15px;
+
+}
+
 .navigationList{
     @media screen and (max-width: 767px) {
         display: flex;
@@ -22,7 +27,9 @@
         }
 }
 
-.navigationItem{
+.navigationItem:nth-child(1){
+    @media screen and (min-width: 768px) {
+    margin-bottom: 12px;    }
 }
 
 .navigationLink{
@@ -39,10 +46,14 @@
 }
 
 .navigationImg{
-    background-color: aqua;
+    width: 38px;
+    height: 38px;
 
     @media screen and (min-width: 768px) {
-    margin-right: 20px;        
+    margin-right: 20px; 
+    
+    width: 18px;
+    height: 18px;
 }
 
 }
