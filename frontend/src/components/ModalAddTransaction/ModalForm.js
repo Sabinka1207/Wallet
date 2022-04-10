@@ -90,9 +90,8 @@ function ModalForm({ closeModal, income, categories }) {
           <div className="Modal__select">
             {income ? (
               <>
-                <SelectArrow />
                 <select
-                  className="Select__income"
+                  className="Select__income Modal__input"
                   name="category"
                   onChange={setSelect}
                 >
@@ -105,13 +104,13 @@ function ModalForm({ closeModal, income, categories }) {
                         {nameDropdown}
                       </option>
                     ))}
-                </select>
+                </select>{' '}
+                <SelectArrow className="Modal__arrow" />
               </>
             ) : (
               <>
-                <SelectArrow />
                 <select
-                  className="Select__spending"
+                  className="Select__spending Modal__input"
                   name="category"
                   onChange={setSelect}
                 >
@@ -124,26 +123,29 @@ function ModalForm({ closeModal, income, categories }) {
                         {nameDropdown}
                       </option>
                     ))}
-                </select>
+                </select>{' '}
+                <SelectArrow className="Modal__arrow" />
               </>
             )}
           </div>
-          <div>
+          <div className="Modal__container">
             <input
               type="text"
               name="amount"
               placeholder="0.00"
-              className="Modal__input"
+              className="Modal__input Modal__amount"
             />
             <span className="Modal__date">
               <Datetime
-                className="Modal__calendar"
+                className="Modal__input Modal__datetime"
                 closeOnSelect="true"
+                // timeFormat="false"
+                dateFormat="DD.MM.YYYY"
                 isValidDate={valid}
                 onChange={setDate(today)}
                 value={today}
               />
-              <Calendar />
+              <Calendar className="Modal__calendar" />
             </span>
           </div>
           <input
